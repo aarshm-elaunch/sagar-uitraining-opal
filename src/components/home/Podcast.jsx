@@ -7,8 +7,8 @@ const Podcast = () => {
         <Box className="podcast_section">
             <Container sx={{minWidth: '80%'}}>
                 <h1>Podcasts</h1>
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 3, sm: 8, md: 12 }}>
-                    <Grid item xs={4} sm={8} md={6}>
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 3, sm: 10, md: 12 }}>
+                    <Grid item xs={4} sm={10} md={6}>
                         <Box className="podcast_card">
                             <Box className="img_wrapper">
                                 <img src={podcast} alt="podcast" />
@@ -20,7 +20,7 @@ const Podcast = () => {
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={4} sm={8} md={6}>
+                    <Grid item xs={4} sm={10} md={6}>
                         <Box className="podcast_card">
                             <Box className="img_wrapper">
                                 <img src={podcast} alt="podcast" />
@@ -32,7 +32,7 @@ const Podcast = () => {
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={4} sm={8} md={6}>
+                    <Grid item xs={4} sm={10} md={6}>
                         <Box className="podcast_card">
                             <Box className="img_wrapper">
                                 <img src={podcast} alt="podcast" />
@@ -44,7 +44,7 @@ const Podcast = () => {
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={4} sm={8} md={6}>
+                    <Grid item xs={4} sm={10} md={6}>
                         <Box className="podcast_card">
                             <Box className="img_wrapper">
                                 <img src={podcast} alt="podcast" />
