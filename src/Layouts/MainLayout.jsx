@@ -8,7 +8,7 @@ const MainLayout = () => {
     return (
         <>
             <MainHeader />
-            <Box sx={{ backgroundImage: `url(${require('../assets/images/background.png')})`, backgroundSize: 'cover', backgroundPosition: 'right', backgroundRepeat: 'no-repeat', height: 'calc(100vh - 80px)' }}>
+            <Box>
                 <Outlet />
             </Box>
         </>

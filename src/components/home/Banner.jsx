@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const Banner = () => {
     return (
-        <Box className="banner_section">
+        <Box className="banner_section" sx={{ backgroundImage: `url(${require('../../assets/images/background.png')})`, backgroundSize: 'cover', backgroundPosition: 'right', backgroundRepeat: 'no-repeat', height: 'calc(100vh - 80px)' }}>
             <Container sx={{ minWidth: '80%', height: '100%' }}>
                 <Box className="banner_main">
                     <Box className="text_conetnt">

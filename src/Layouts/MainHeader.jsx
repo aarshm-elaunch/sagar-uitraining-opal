@@ -90,11 +90,11 @@ const MainHeader = () => {
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
                         <Box ><img src={logo} alt="logo" /></Box>
                         <Box sx={{ display: { lg: 'flex', md: 'none', sm: 'none', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
-                            <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none' }}>Home</Typography>
+                            <Typography component="a" href='/home' sx={{ color: 'inherit', textDecoration: 'none' }}>Home</Typography>
                             <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none' }}>Auctions</Typography>
                             <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none' }}>Podcasts</Typography>
                             <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none' }}>Stores</Typography>
-                            <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none' }}>About us</Typography>
+                            <Typography component="a" href='/about' sx={{ color: 'inherit', textDecoration: 'none' }}>About us</Typography>
                         </Box>
                         <Drawer
                             variant="temporary"

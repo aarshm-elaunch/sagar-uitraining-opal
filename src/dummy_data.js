@@ -12,48 +12,57 @@ export const product_list = [
         image: product,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2,500'
+        price: '$2,000',
+        colorName: '#ED5FDD'
+
     },
     {
         image: product2,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2,500'
+        price: '$2,500',
+        colorName: '#6B5595'
     },
     {
         image: product3,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2,500'
+        price: '$2,500',
+        colorName: '#ED5FDD'
     },
     {
         image: product4,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2,500'
+        price: '$2,000',
+        colorName: '#E7ED9B'
     },
     {
         image: product4,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2,500'
+        price: '$1,500',
+        colorName: '#8BDB81'
     },
     {
         image: product6,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2,500'
+        price: '$3,500',
+        colorName: '#E7ED9B'
     },
     {
         image: product7,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2,500'
+        price: '$500',
+        colorName: '#8BDB81'
     },
     {
         image: product8,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2,500'
+        price: '$2,500',
+        colorName: '#55BAB9'
     },
 ];

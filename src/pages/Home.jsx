@@ -4,6 +4,7 @@ import Banner from '../components/home/Banner';
 import LiveAuction from '../components/home/LiveAuction';
 import Product from '../components/home/Product';
 import Podcast from '../components/home/Podcast';
+import MainFooter from '../Layouts/MainFooter';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <LiveAuction />
             <Product />
             <Podcast />
+            <MainFooter />
         </>
     );
 }

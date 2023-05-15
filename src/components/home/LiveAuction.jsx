@@ -19,8 +19,8 @@ const LiveAuction = () => {
             <Box className="live_section">
                 <Container sx={{ minWidth: '80%' }}>
                     <h1>Live Auction</h1>
-                    <Grid container spacing={6} columns={16}>
-                        <Grid item xs={8}>
+                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 3, sm: 10, md: 12 }}>
+                        <Grid item xs={4} sm={10} md={6}>
                             <Box className="image_wrapper">
                                 <img src={auction_1} alt='auction' />
                                 <Box className="time">13:00</Box>
@@ -30,7 +30,7 @@ const LiveAuction = () => {
                                 <Button className='btn_theam'>Join Auction</Button>
                             </Box>
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={4} sm={10} md={6}>
                             <Box className="image_wrapper">
                                 <img src={auction_2} alt='auction' />
                                 <Box className="time">13:00</Box>

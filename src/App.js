@@ -5,6 +5,10 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import MainLayout from './Layouts/MainLayout';
 import Home from './pages/Home';
+import About from './pages/About';
+import Policy from './pages/Policy';
+import Auction from './pages/Auction';
+import Product from './pages/Product';
 
 const App = () => {
   const element = useRoutes([
@@ -23,6 +27,10 @@ const App = () => {
       element: <MainLayout />,
       children: [
         {path: 'home',element: <Home />}, 
+        {path: 'about',element: <About />},
+        {path: 'policy',element: <Policy />},
+        {path: 'auction',element: <Auction />},
+        {path: 'products',element: <Product />},
       ]
     },
   ]);
