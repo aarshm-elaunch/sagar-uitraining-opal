@@ -23,7 +23,7 @@ const Login = () => {
     const [show, setShow] = useState(false);
     const navigate = useNavigate();
     return (
-        <Box sx={{ height: 'calc(100vh - 80px)', overflowY: 'auto' }}>
+        <Box sx={{height: 'calc(100vh - 80px)', overflowY: 'auto' }}>
         <Container>
             <Box sx={{ display: {lg: 'flex', md: 'flex', sm: 'block'}, alignItems: 'center', justifyContent: 'space-between',  mt: '60px' }}>
                 {/* <Box> */}

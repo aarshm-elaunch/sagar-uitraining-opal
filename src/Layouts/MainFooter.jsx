@@ -31,7 +31,7 @@ const MainFooter = () => {
                                 <Box className="footer_card">
                                     <h2>Information</h2>
                                     <Box className="list">
-                                        <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Privacy Policy</Typography>
+                                        <Typography href='/policy' component="a" sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Privacy Policy</Typography>
                                         <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Terms and Conditions</Typography>
                                     </Box>
                                 </Box>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, Container, Divider, FormControl, Grid, IconButton, InputAdornment, InputBase, InputLabel, OutlinedInput, Paper, Rating, TextField, Typography, colors } from '@mui/material';
+import { Box, Button, Checkbox, Container, Divider, FormControl, Grid, IconButton, InputAdornment, InputBase, InputLabel, OutlinedInput, Paper, Rating, TextField, Typography, colors } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import { product_list } from '../../dummy_data';
-import fevorite from '../../assets/images/heart.png'
+import fevorite from '../../assets/images/heart.png';
 
 const color_list = [
     {
@@ -29,7 +29,7 @@ const color_list = [
     {
         id: 5,
         colorName: '#55BAB9'
-    }
+    },
 ]
 
 const types_list = [
@@ -80,19 +80,32 @@ const shape_list = [
 
 const Products = () => {
     const [products, setProducts] = useState(product_list);
-    const [pro, setPro ] = useState(products);
-    const [color, setColor] = useState();
-    const [types, setTypes] = useState();
+    const [pro, setPro] = useState(products);
+    const [color, setColor] = useState([]);
+    const [types, setTypes] = useState([]);
     const [shapes, setShapes] = useState();
-
+    const [min, setMin] = useState();
     console.log(color);
 
     const filter = () => {
-        const filteredProduct = products.filter((p) => p?.colorName === color?.colorName);
+        const filteredProduct = products
+        .filter((p) =>{
+            let checkColors = color.filter(item => item.colorName === p?.colorName).length > 0
+            return checkColors || p.price === `$${min}`
+            });
         setPro(filteredProduct)
     }
+
     const reset = () => {
-        setProducts(product_list)
+        setPro(product_list)
+    }
+
+    const addRemoveColor = (data) =>{
+        const remove = color.filter((item)=>item.id !== data.id);
+        color?.findIndex((c)=>c?.id === data.id) > -1 ? 
+             setColor(remove)
+            : 
+            setColor([...color, data])
     }
 
 
@@ -132,6 +145,8 @@ const Products = () => {
                                             id="outlined-adornment-amount"
                                             startAdornment={<InputAdornment position="start">$</InputAdornment>}
                                             label="Min. Price"
+                                            value={min}
+                                            onChange={(e)=>setMin(e.target.value)}
                                         />
                                     </FormControl>
                                     <FormControl fullWidth className='feild'>
@@ -147,8 +162,16 @@ const Products = () => {
                                 <Box className='color'>
                                     <h2>Color</h2>
                                     <Box className="color_list">
-                                        {color_list.map((ele, index) =>
-                                            <Typography className="color_wrapper" sx={{ background: ele.colorName, border: color?.id === index ? '1px solid black' : 'none' }} onClick={() => setColor(ele)}> </Typography>
+                                        {color_list.map((ele) =>
+                                            <Box
+                                                className="color_wrapper"
+                                                sx={{
+                                                    background: ele.colorName,
+                                                    border: color?.findIndex((c)=>c?.id === ele.id) > -1 && '3px solid #6200EE'
+                                                }}
+                                                onClick={() => addRemoveColor(ele)}
+                                                addRemoveColor
+                                            > </Box>
                                         )}
                                     </Box>
                                 </Box>
@@ -159,10 +182,13 @@ const Products = () => {
                                         {types_list.map((type, index) =>
                                             <Typography
                                                 className="list_wrapper"
-                                                onClick={() => setTypes(index)}
+                                                onClick={() => setTypes([...types, type])}
                                                 sx={{
-                                                    background: types === index ? '#0D0E11' : '#E6E8F1',
-                                                    color: types === index ? '#fff' : '#000'
+                                                    background:  !types.length ? '#E6E8F1' : types?.map((t)=>t?.id === index && '#0D0E11'),
+                                                    // background: types === index ? '#0D0E11' : '#E6E8F1',
+                                                    // color: types === index ? '#fff' : '#000'
+                                                    color: types?.map((t)=>t?.id === index ? '#fff' : '#000')
+                                                    // color: '#fff'
                                                 }}
                                             >{type.name}</Typography>
                                         )}
@@ -185,8 +211,8 @@ const Products = () => {
                                     </Box>
                                 </Box>
                                 <Box className="btn_section">
-                                    <Button className='btn_theam btn' onClick={()=>filter()}>Apply Filters</Button>
-                                    <Button className='btn_theam2 btn' onClick={()=>reset()}>Reset</Button>
+                                    <Button className='btn_theam btn' onClick={() => filter()}>Apply Filters</Button>
+                                    <Button className='btn_theam2 btn' onClick={() => reset()}>Reset</Button>
                                 </Box>
                             </Box>
                         </Grid>

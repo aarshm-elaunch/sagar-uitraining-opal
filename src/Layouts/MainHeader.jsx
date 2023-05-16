@@ -85,13 +85,13 @@ const MainHeader = () => {
 
     return (
         <header>
-            <AppBar position="sticky" sx={{ background: '#fff', color: '#000', padding: '10px' }}>
+            <AppBar position="fixed" sx={{ background: '#fff', color: '#000', padding: '10px' }}>
                 <Container sx={{ minWidth: '80%' }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
                         <Box ><img src={logo} alt="logo" /></Box>
                         <Box sx={{ display: { lg: 'flex', md: 'none', sm: 'none', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
                             <Typography component="a" href='/home' sx={{ color: 'inherit', textDecoration: 'none' }}>Home</Typography>
-                            <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none' }}>Auctions</Typography>
+                            <Typography component="a" href='/auction' sx={{ color: 'inherit', textDecoration: 'none' }}>Auctions</Typography>
                             <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none' }}>Podcasts</Typography>
                             <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none' }}>Stores</Typography>
                             <Typography component="a" href='/about' sx={{ color: 'inherit', textDecoration: 'none' }}>About us</Typography>
@@ -116,7 +116,7 @@ const MainHeader = () => {
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
                             <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'flex', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
-                                <img src={message} alt="store" />
+                                <img src={message} alt="store" onClick={()=>navigate('/chat')}/>
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
