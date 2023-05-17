@@ -72,27 +72,45 @@ export const product_list = [
 
 export const user_list = [
     {
-        name: 'Bussiness1',
+        id: 1,
+        name: 'Suyog B',
         dp: user1,
         time: 'Now',
         meaage: 'Some message goes here'
     },
     {
-        name: 'Bussiness2',
+        id: 2,
+        name: 'Aarsh',
         dp: user4,
         time: 'Yesterday',
         meaage: 'Some message goes here'
     },
     {
-        name: 'Bussiness3',
+        id: 3,
+        name: 'Nikunj',
         dp: user3,
         time: 'Yesterday',
         meaage: 'Some message goes here'
     },
     {
-        name: 'Bussiness4',
+        id: 4,
+        name: 'Umesh',
         dp: user4,
         time: 'Yesterday',
         meaage: 'Some message goes here'
-    }
+    },
+    {
+        id: 5,
+        name: 'Sagar B',
+        dp: user1,
+        time: 'Now',
+        meaage: 'Some message goes here'
+    },
+    {
+        id: 6,
+        name: 'Suyog A',
+        dp: user1,
+        time: 'Now',
+        meaage: 'Some message goes here'
+    },
 ]
