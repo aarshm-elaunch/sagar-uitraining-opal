@@ -1,12 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, Container, Grid, Rating } from '@mui/material';
-import product_1 from '../../assets/images/product.png'
-import fevorite from '../../assets/images/heart.png'
+import { Box, Button, Checkbox, Container, Grid, Rating } from '@mui/material';
 import { product_list } from '../../dummy_data';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
 
 const Product = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
     return (
         <Box className="product_section">
             <Container sx={{ minWidth: '80%' }}>
@@ -21,7 +23,7 @@ const Product = () => {
                                 <Box className="item_wrapper">
                                     <Box className="item_text d_space_between">
                                         <h3>{data.name}</h3>
-                                        <img src={fevorite} alt='fevorite' />
+                                    <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite sx={{fill: 'red'}} />} />
                                     </Box>
                                     <p>Some item description goes here</p>
                                     <Box className="item_detail d_space_between">

@@ -10,6 +10,9 @@ import Policy from './pages/Policy';
 import Auction from './pages/Auction';
 import Product from './pages/Product';
 import Chat from './pages/Chat';
+import AuctionDetail from './pages/AuctionDetail';
+import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
 
 const App = () => {
   const element = useRoutes([
@@ -33,6 +36,9 @@ const App = () => {
         {path: 'auction',element: <Auction />},
         {path: 'products',element: <Product />},
         {path: 'chat',element: <Chat />},
+        {path: 'auctiondetail',element: <AuctionDetail />},
+        {path: 'profile',element: <Profile />},
+        {path: 'editprofile',element: <EditProfile />},
       ]
     },
   ]);

@@ -20,19 +20,23 @@ const navItems = ["Home", "Auctions", "Podcasts", "Stores", "About us"];
 const menuItems = [
     {
         icon: profile,
-        item: 'profile'
+        item: 'profile',
+        location: '/profile'
     },
     {
         icon: order,
-        item: 'My Order'
+        item: 'My Order',
+        location: '/profile'
     },
     {
         icon: heart,
-        item: 'Wishlist'
+        item: 'Wishlist',
+        location: '/profile'
     },
     {
         icon: logout,
-        item: 'logout'
+        item: 'logout',
+        location: '/'
     },
 ]
 
@@ -77,7 +81,7 @@ const MainHeader = () => {
             <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
                 <Box sx={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                     <img src={option.icon} alt="message" />
-                    <Typography >{option.item}</Typography>
+                    <Typography component='a' href={option.location} sx={{ color: 'inherit', textDecoration: 'none' }} >{option.item}</Typography>
                 </Box>
             </MenuItem>
         ))

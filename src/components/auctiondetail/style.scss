@@ -1,0 +1,144 @@
+.main_detail {
+    max-width: 620px;
+    margin: auto;
+
+    .image_section {
+        margin-top: 120px;
+
+        .img_wrapper {
+            height: 378px;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+                object-position: center;
+            }
+        }
+
+        .detail {
+            padding: 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bid_section {
+            padding: 24px 0;
+            // display: flex;
+            // align-items: center;
+
+            .bid_detail {
+                flex-grow: 1;
+
+                p {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #554F67;
+                    margin-bottom: 8px;
+                }
+
+                h3 {
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: #0D0E11;
+                }
+            }
+
+            .bid_action {
+                flex-shrink: 0;
+                // display: flex;
+                // align-items: center;
+                // gap: 12px;
+                // text-align: end;
+
+                .input_field {
+                    height: 48px !important;
+                }
+
+                .btn_bid {
+                    padding: 10px 20px !important;
+                    height: 48px !important;
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+
+    .itemdetail_section {
+        border: 1px solid #EFF3F9;
+        border-radius: 15px;
+        padding: 24px;
+        margin-bottom: 24px;
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            h3 {
+                font-size: 18px;
+                font-weight: 600;
+                color: #0D0E11;
+            }
+        }
+
+        .data {
+            margin: 24px 0;
+            h2 {
+                font-size: 14px;
+                font-weight: 500;
+                color: #0D0E11;
+                margin-bottom: 8px;
+            }
+            p {
+                font-size: 13px;
+                font-weight: 400;
+                color: #554F67;
+            }
+        }
+
+        .about_section {
+            margin-top: 24px;
+            h3 {
+                font-size: 14px;
+                font-weight: 500;
+                color: #0D0E11;
+                margin-bottom: 8px;
+            }
+            p {
+                font-size: 13px;
+                font-weight: 400;
+                color: #554F67;
+            }
+        }
+    }
+
+    .shipping_wrapper{
+        background: #FEE7D7;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px;
+        margin-bottom: 40px;
+        .icn{
+            height: 56px;
+            width: 56px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .shipping_details{
+            h1{
+                font-size: 18px;
+                font-weight: 600;
+                color: #0D0E11;
+                margin-bottom: 12px;
+            }
+        }
+    }
+}

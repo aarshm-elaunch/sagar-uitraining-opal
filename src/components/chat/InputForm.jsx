@@ -37,7 +37,8 @@ const InputForm = ({user}) => {
 
     useEffect(()=>{
         setShowPicker(false);
-        setInputStr('')
+        setInputStr('');
+        setPre([]);
     }, [user])
 
     return (

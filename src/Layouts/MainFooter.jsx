@@ -10,13 +10,13 @@ const MainFooter = () => {
             <Container sx={{ minWidth: '80%' }}>
                 <Box className="footer_wrapper">
                     <Box >
-                        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 3, sm: 8, md: 12 }}>
+                        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                             <Grid item xs={4} sm={4} md={3}>
                                 <Box className="footer_card">
                                     <img src={logo} alt="logo" />
                                 </Box>
                             </Grid>
-                            <Grid item xs={4} sm={4} md={3}>
+                            <Grid item xs={2} sm={4} md={3}>
                                 <Box className="footer_card">
                                     <h2>Quick Links</h2>
                                     <Box className="list">
@@ -27,7 +27,7 @@ const MainFooter = () => {
                                     </Box>
                                 </Box>
                             </Grid>
-                            <Grid item xs={4} sm={4} md={3}>
+                            <Grid item xs={2} sm={4} md={3}>
                                 <Box className="footer_card">
                                     <h2>Information</h2>
                                     <Box className="list">
