@@ -1,0 +1,40 @@
+.stripe_wrapper{
+    width: 60%;
+    margin: auto;
+    .header{
+        margin-top: 120px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        h1{
+            font-size: 40px;
+            font-weight: 700;
+            color: #0D0E11;
+            margin-bottom: 0;
+        }
+    }
+    .details_box{
+        border: 1px solid #EFF3F9;
+        border-radius: 15px;
+        box-shadow: 0px 1px 3px rgba(30, 38, 57, 0.08);
+        padding: 24px;
+        margin: 40px 0;
+        width: 100%;
+        h2{
+            font-size: 20px;
+            font-weight: 700;
+            color: #0D0E11; 
+        }
+        .account_details{
+            margin: 24px 0;
+            .input_field{
+                border-radius: 8px;
+            }
+        }
+        .btn_section{
+            margin-top: 24px;
+            display: flex;
+            gap: 12px;
+        }
+    }
+}

@@ -1,21 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Box, FormControl, IconButton, InputAdornment, OutlinedInput } from '@mui/material';
+import { Box, FormControl, IconButton, InputAdornment, OutlinedInput, Typography } from '@mui/material';
 import Picker from 'emoji-picker-react';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import AttachmentIcon from '@mui/icons-material/Attachment';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import DescriptionIcon from '@mui/icons-material/Description';
 
-const  usePrevious = (value) => {
-    const ref = useRef();
-    useEffect(() => {
-      ref.current = value;
-    }, [value]);
-    return ref.current;
-  }
-
-const InputForm = ({user}) => {
-    const prevCount = usePrevious(user);
+const InputForm = ({ user }) => {
     const [showPicker, setShowPicker] = useState(false);
     const [inputStr, setInputStr] = useState("");
     const [pre, setPre] = useState([]);
@@ -26,16 +19,17 @@ const InputForm = ({user}) => {
     };
 
     const previewFile = (e) => {
+        console.log(e.target.files[0])
         var file = e.target.files[0];
-        setPre([...pre, URL.createObjectURL(file)]);
+        setPre([...pre, file]);
     }
 
     const removeImage = (image) => {
-        const deleteImg = pre.filter((item)=>item !== image);
+        const deleteImg = pre.filter((item) => item !== image);
         setPre(deleteImg);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         setShowPicker(false);
         setInputStr('');
         setPre([]);
@@ -49,7 +43,18 @@ const InputForm = ({user}) => {
                     {pre?.map((img) =>
                         <Box sx={{ display: 'flex', gap: '12px' }}>
                             <Box className='img_wrapper'>
-                                <img src={img} alt='img' />
+                                {img.type.includes("text") ?
+                                    <Box>
+                                        <DescriptionIcon className='icn' sx={{ fill: '#3B37DA' }} />
+                                        <Typography sx={{textAlign: 'center'}}>{img.name}</Typography>
+                                    </Box> :
+                                    img.type.includes("pdf") ?
+                                        <Box>
+                                            <PictureAsPdfIcon className='icn' sx={{fill: '#DE0000'}}/>
+                                            <Typography sx={{textAlign: 'center'}}>{img.name}</Typography>
+                                        </Box> :
+                                        <img src={URL.createObjectURL(img)} alt='img' />
+                                }
                                 <IconButton
                                     aria-label="toggle password visibility"
                                     edge="start"

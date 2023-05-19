@@ -116,8 +116,13 @@
                         display: flex;
                         align-items: center;
                         flex-grow: 1;
-                        gap: 16px;
-
+                        gap: 12px;
+                        // .hide_icn{
+                        //     display: none !important;
+                        // }
+                        .show_icn{
+                            display: none;
+                        }
                         .h3 {
                             flex-grow: 1;
                             font-size: 20px;
@@ -194,18 +199,22 @@
 
             .chat_footer_main {
                 padding: 24px 130px;
-                .input_wrapper{
+
+                .input_wrapper {
                     position: relative;
+
                     .emoji-picker-react {
                         // margin-bottom: 12px;
                         position: absolute;
                         bottom: 50px;
                         z-index: 999;
                     }
+
                     .input_massage {
                         height: 48px;
                     }
-                    .preview{
+
+                    .preview {
                         position: absolute;
                         background: #E6E8F1;
                         width: 100%;
@@ -214,26 +223,36 @@
                         padding: 8px;
                         display: flex;
                         flex-wrap: wrap;
-                        .img_wrapper{
+
+                        .img_wrapper {
                             height: 150px;
                             width: 150px;
                             border-radius: 12px;
                             overflow: hidden;
                             position: relative;
                             background-color: #fff;
-                            img{
+
+                            img {
                                 height: 100%;
                                 width: 100%;
                                 object-fit: fill;
                                 object-position: center;
                             }
-                            .icn_close{
+                            .icn{
+                                height: 80%;
+                                width: 80%;
+                                object-fit: fill;
+                                object-position: center;
+                            }
+
+                            .icn_close {
                                 position: absolute;
                                 top: 0px;
                                 right: 0px;
                             }
                         }
-                        .icn_pluse{
+
+                        .icn_pluse {
                             height: 150px;
                             background-color: #fff;
                             border-radius: 8px;
@@ -261,4 +280,92 @@
 .custom-scrollbar::-webkit-scrollbar-thumb {
     background-color: #3B37DA;
     border-radius: 8px;
+}
+
+@media(max-width: 991.98px) {
+    .sidebar {
+        width: 100% !important;
+        padding: 56px 40px 0 40px !important;
+    }
+
+    .hide_sidebar {
+        display: none;
+    }
+
+    .chat_main {
+        display: none;
+    }
+
+    .show_chat {
+        display: block;
+        width: 100% !important;
+    }
+
+    .chat_header_main {
+        padding: 10px 40px !important;
+    }
+
+    .chat_body_main {
+        padding: 10px 40px !important;
+    }
+
+    .chat_footer_main {
+        padding: 24px 40px !important;
+    }
+
+    .show_icn{
+        display: block !important;
+    }
+
+}
+
+@media(max-width: 567.98px){
+    .chat_wrapper {
+        .chat_main {
+            .chat_view {
+                .chat_footer_main {
+                    .input_wrapper {
+                        .preview {
+                            .img_wrapper{
+                                height: 100px !important;
+                                width: 100px !important;
+                            }
+                            .icn_pluse{
+                                height: 100px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 375.98px){
+    .chat_wrapper {
+        .chat_main {
+            .chat_view {
+                .chat_footer_main {
+                    .input_wrapper {
+                        .preview {
+                            .img_wrapper{
+                                height: 70px !important;
+                                width: 70px !important;
+                            }
+                            .icn_pluse{
+                                height: 70px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 320.98px){
+    .emoji-picker-react{
+        width: 100% !important;
+        margin: auto;
+    }
 }

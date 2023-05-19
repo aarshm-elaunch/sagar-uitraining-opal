@@ -13,6 +13,7 @@ import Chat from './pages/Chat';
 import AuctionDetail from './pages/AuctionDetail';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
+import Stripe from './pages/Stripe';
 
 const App = () => {
   const element = useRoutes([
@@ -39,6 +40,7 @@ const App = () => {
         {path: 'auctiondetail',element: <AuctionDetail />},
         {path: 'profile',element: <Profile />},
         {path: 'editprofile',element: <EditProfile />},
+        {path: 'stripe',element: <Stripe />},
       ]
     },
   ]);

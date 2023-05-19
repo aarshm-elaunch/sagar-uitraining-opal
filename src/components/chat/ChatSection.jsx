@@ -15,6 +15,7 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import OurChat from './OurChat';
 import WithChat from './WithChat';
 import InputForm from './InputForm';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const ChatSection = () => {
     const [data, setdata] = useState(user_list)
@@ -56,7 +57,7 @@ const ChatSection = () => {
 
     return (
         <Box className='chat_wrapper'>
-            <Box className='sidebar custom-scrollbar'>
+            <Box className={!users ? 'sidebar custom-scrollbar' : 'sidebar custom-scrollbar hide_sidebar'}>
                 <Box className="he">
                     <h1>Chats</h1>
                     <FormControl fullWidth>
@@ -93,7 +94,7 @@ const ChatSection = () => {
                     </List>
                 </Box>
             </Box>
-            <Box className="chat_main">
+            <Box className={!users ? "chat_main" : "chat_main show_chat"}>
                 {!users ?
                     <Box className='chat_hiden'>
                         <img src={chat} alt="img" />
@@ -103,6 +104,7 @@ const ChatSection = () => {
                         <Box className='chat_header_main'>
                             <Box className="chat_header">
                                 <Box className='header_detail'>
+                                    <IconButton className={user ? 'show_icn' : 'show_icn'} onClick={()=>setUsers('')}><ArrowBackIcon /></IconButton>
                                     <Box className="img_wrapper"><img src={users.dp} alt="dp" /></Box>
                                     <h3 className="header_name">{users.name}</h3>
                                 </Box>
@@ -119,69 +121,6 @@ const ChatSection = () => {
                             </Box>
                         </Box>
                         <Box className="chat_footer_main">
-                            {/* <Box className="input_wrapper">
-                                <FormControl fullWidth>
-                                    {showPicker && <Picker onEmojiClick={onEmojiClick} className="picker" />}
-                                    {pre.length ? <Box className="preview">
-                                        {pre.map((img) =>
-                                            <Box sx={{ display: 'flex', gap: '12px' }}>
-                                                <Box className='img_wrapper'>
-                                                    <img src={img} alt='img' />
-                                                    <IconButton
-                                                        aria-label="toggle password visibility"
-                                                        edge="start"
-                                                        className='icn_close'
-                                                        onClick={() => removeImage(img)}
-                                                    >
-                                                        <HighlightOffIcon sx={{ fill: '#fff' }} />
-                                                    </IconButton>
-                                                </Box>
-                                                <Box >
-                                                </Box>
-                                            </Box>
-                                        )}
-                                        <IconButton
-                                            variant="contained"
-                                            component="label"
-                                            className='icn_pluse'
-                                        >
-                                            <AddOutlinedIcon sx={{ fill: '#000' }} />
-                                            <input type="file" hidden onChange={(e) => previewFile(e)} />
-                                        </IconButton>
-                                    </Box>: ''}
-                                    <OutlinedInput
-                                        id="outlined-adornment-password"
-                                        type='text'
-                                        placeholder='Type here...'
-                                        value={inputStr}
-                                        onChange={(e) => setInputStr(e.target.value)}
-                                        startAdornment={
-                                            <InputAdornment position="start">
-                                                <IconButton
-                                                    aria-label="toggle password visibility"
-                                                    edge="start"
-                                                    onClick={() => setShowPicker(!showPicker)}
-                                                >
-                                                    <InsertEmoticonIcon sx={{ fill: '#000' }} />
-                                                </IconButton>
-                                            </InputAdornment>
-                                        }
-                                        endAdornment={
-                                            !inputStr && <InputAdornment position="end">
-                                                <IconButton
-                                                    variant="contained"
-                                                    component="label"
-                                                >
-                                                    <AttachmentIcon sx={{ transform: 'rotate(-45deg)', fill: '#000' }} color='#000 !important' />
-                                                    <input type="file" hidden onChange={(e) => previewFile(e)} />
-                                                </IconButton>
-                                            </InputAdornment>
-                                        }
-                                        className='input_massage'
-                                        sx={{ '& .MuiOutlinedInput-notchedOutline': { border: '1px solid #EFF3F9 !important' }, borderRadius: showPicker ? '0' : pre.length ? '0' : '24px' }}
-                                    />
-                                </FormControl>
-                            </Box> */}
                             <InputForm user={users}/>
                         </Box>
                     </Box>}
