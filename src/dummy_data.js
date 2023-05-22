@@ -9,6 +9,13 @@ import product8 from '../src/assets/images/product8.png'
 import user1 from '../src/assets/images/user1.png'
 import user3 from '../src/assets/images/user3.png'
 import user4 from '../src/assets/images/user4.png'
+import podcast1 from '../src/assets/images/podcast_image/img1.png';
+import podcast2 from '../src/assets/images/podcast_image/img2.png';
+import podcast3 from '../src/assets/images/podcast_image/img3.png';
+import podcast4 from '../src/assets/images/podcast_image/img4.png';
+import audio1 from '../src/assets/audio/music1.mp3';
+import audio2 from '../src/assets/audio/music2.mp3';
+import audio3 from '../src/assets/audio/music3.mp3';
 
 export const product_list = [
     {
@@ -112,5 +119,44 @@ export const user_list = [
         dp: user1,
         time: 'Now',
         meaage: 'Some message goes here'
+    },
+]
+
+export const podcast_list = [
+    {
+        img: podcast1,
+        title: 'Podcast title goes here',
+        detail: 'Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.',
+        audio: audio1,
+    },
+    {
+        img: podcast2,
+        title: 'Podcast title goes here',
+        detail: 'Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.',
+        audio: audio2,
+    },
+    {
+        img: podcast3,
+        title: 'Podcast title goes here',
+        detail: 'Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.',
+        audio: audio3,
+    },
+    {
+        img: podcast4,
+        title: 'Podcast title goes here',
+        detail: 'Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.',
+        audio: audio2,
+    },
+    {
+        img: podcast2,
+        title: 'Podcast title goes here',
+        detail: 'Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.',
+        audio: audio3,
+    },
+    {
+        img: podcast3,
+        title: 'Podcast title goes here',
+        detail: 'Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.',
+        audio: audio1,
     },
 ]

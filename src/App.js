@@ -14,6 +14,8 @@ import AuctionDetail from './pages/AuctionDetail';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 import Stripe from './pages/Stripe';
+import ProductDetails from './pages/ProductDetails';
+import Podcast from './pages/Podcast';
 
 const App = () => {
   const element = useRoutes([
@@ -41,6 +43,8 @@ const App = () => {
         {path: 'profile',element: <Profile />},
         {path: 'editprofile',element: <EditProfile />},
         {path: 'stripe',element: <Stripe />},
+        {path: 'productdetail',element: <ProductDetails />},
+        {path: 'podcast',element: <Podcast />},
       ]
     },
   ]);

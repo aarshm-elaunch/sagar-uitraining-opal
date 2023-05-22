@@ -4,6 +4,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import { product_list } from '../../dummy_data';
 import fevorite from '../../assets/images/heart.png';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
 
 const color_list = [
     {
@@ -185,10 +187,7 @@ const Products = () => {
                                                 onClick={() => setTypes([...types, type])}
                                                 sx={{
                                                     background:  !types.length ? '#E6E8F1' : types?.map((t)=>t?.id === index && '#0D0E11'),
-                                                    // background: types === index ? '#0D0E11' : '#E6E8F1',
-                                                    // color: types === index ? '#fff' : '#000'
                                                     color: types?.map((t)=>t?.id === index ? '#fff' : '#000')
-                                                    // color: '#fff'
                                                 }}
                                             >{type.name}</Typography>
                                         )}
@@ -228,7 +227,7 @@ const Products = () => {
                                             <Box className="item_wrapper">
                                                 <Box className="item_text d_space_between">
                                                     <h3>{data.name}</h3>
-                                                    <img src={fevorite} alt='fevorite' />
+                                                    <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite sx={{ fill: 'red' }} />} />
                                                 </Box>
                                                 <p>Some item description goes here</p>
                                                 <Box className="item_detail d_space_between">
