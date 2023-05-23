@@ -19,61 +19,84 @@ import audio3 from '../src/assets/audio/music3.mp3';
 
 export const product_list = [
     {
+        id: 'p1',
         image: product,
         name: "Item name",
         description: "Some item description goes here",
-        price: '$2,000',
-        colorName: '#ED5FDD'
-
+        price: '2000',
+        colorName: '#ED5FDD',
+        qty: 1,
+        fevorite: false,
     },
     {
+        id: 'p2',
         image: product2,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2500',
-        colorName: '#6B5595'
+        price: 2500,
+        colorName: '#6B5595',
+        qty: 1,
+        fevorite: false,
     },
     {
+        id: 'p3',
         image: product3,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2500',
-        colorName: '#ED5FDD'
+        price: 2500,
+        colorName: '#ED5FDD',
+        qty: 1,
+        fevorite: false,
     },
     {
+        id: 'p4',
         image: product4,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2000',
-        colorName: '#E7ED9B'
+        price: 2000,
+        colorName: '#E7ED9B',
+        qty: 1,
+        fevorite: false,
     },
     {
+        id: 'p5',
         image: product4,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$1500',
-        colorName: '#8BDB81'
+        price: 1500,
+        colorName: '#8BDB81',
+        qty: 1,
+        fevorite: false,
     },
     {
+        id: 'p6',
         image: product6,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$3500',
-        colorName: '#E7ED9B'
+        price: 3500,
+        colorName: '#E7ED9B',
+        qty: 1,
+        fevorite: false,
     },
     {
+        id: 'p7',
         image: product7,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$500',
-        colorName: '#8BDB81'
+        price: 500,
+        colorName: '#8BDB81',
+        qty: 1,
+        fevorite: false,
     },
     {
+        id: 'p8',
         image: product8,
         name: "Item name here",
         description: "Some item description goes here",
-        price: '$2500',
-        colorName: '#55BAB9'
+        price: 2500,
+        colorName: '#55BAB9',
+        qty: 1,
+        fevorite: false,
     },
 ];
 

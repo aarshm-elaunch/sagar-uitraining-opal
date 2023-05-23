@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AppBar, Avatar, Box, Button, Container, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Menu, MenuItem, Typography } from '@mui/material';
+import { AppBar, Avatar, Badge, Box, Container, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Menu, MenuItem, Typography } from '@mui/material';
 import logo from '../assets/images/logo.png'
-import store from '../assets/images/store.png'
 import MenuIcon from '@mui/icons-material/Menu';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import profile_pic from '../assets/images/profile_pic.png'
 import message from '../assets/images/message.png'
 import profile from '../assets/images/profile.png'
 import order from '../assets/images/order.png'
 import heart from '../assets/images/heart.png'
 import logout from '../assets/images/logout.png'
+import useCart from '../hooks/useCart';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 
 
 const ITEM_HEIGHT = 48;
@@ -31,7 +31,7 @@ const menuItems = [
     {
         icon: heart,
         item: 'Wishlist',
-        location: '/profile'
+        location: '/wishlist'
     },
     {
         icon: logout,
@@ -42,6 +42,7 @@ const menuItems = [
 
 const MainHeader = () => {
     const navigate = useNavigate();
+    const { cartItems } = useCart();
 
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -79,9 +80,9 @@ const MainHeader = () => {
     const menu = (
         menuItems.map((option) => (
             <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-                <Box sx={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src={option.icon} alt="message" />
-                    <Typography component='a' href={option.location} sx={{ color: 'inherit', textDecoration: 'none' }} >{option.item}</Typography>
+                    <Typography component='a' sx={{ color: 'inherit', textDecoration: 'none' }} onClick={() => navigate(option.location)}>{option.item}</Typography>
                 </Box>
             </MenuItem>
         ))
@@ -94,11 +95,11 @@ const MainHeader = () => {
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
                         <Box ><img src={logo} alt="logo" /></Box>
                         <Box sx={{ display: { lg: 'flex', md: 'none', sm: 'none', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
-                            <Typography component="a" href='/home' sx={{ color: 'inherit', textDecoration: 'none' }}>Home</Typography>
-                            <Typography component="a" href='/auction' sx={{ color: 'inherit', textDecoration: 'none' }}>Auctions</Typography>
-                            <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none' }}>Podcasts</Typography>
-                            <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none' }}>Stores</Typography>
-                            <Typography component="a" href='/about' sx={{ color: 'inherit', textDecoration: 'none' }}>About us</Typography>
+                            <Link to="/home" underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
+                            <Link to="/auction" underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Auctions</Link>
+                            <Link to="/podcast" underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Podcasts</Link>
+                            <Link to="#" underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Stores</Link>
+                            <Link to="/about" underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>About us</Link>
                         </Box>
                         <Drawer
                             variant="temporary"
@@ -116,11 +117,17 @@ const MainHeader = () => {
                         </Drawer>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
                             <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'flex', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
-                                <img src={store} alt="store" />
+                                {/* <Badge badgeContent={cartItems && cartItems.length} color="primary"> */}
+                                <IconButton onClick={() => navigate('/cart')}>
+                                    <Badge badgeContent={cartItems && cartItems.length} color="primary">
+                                        <ShoppingBagOutlinedIcon color="action" />
+                                    </Badge>
+                                </IconButton>
+                                {/* <ShoppingBagOutlinedIcon color="action"  /> */}
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
                             <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'flex', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
-                                <img src={message} alt="store" onClick={()=>navigate('/chat')}/>
+                                <img src={message} alt="store" onClick={() => navigate('/chat')} />
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -163,11 +170,11 @@ const MainHeader = () => {
                                 anchorOrigin={{
                                     vertical: 'bottom',
                                     horizontal: 'center',
-                                  }}
-                                  transformOrigin={{
+                                }}
+                                transformOrigin={{
                                     vertical: 'right',
                                     horizontal: 'right',
-                                  }}
+                                }}
                             >
                                 {/* {navItems.map((option) => (
                                     <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>

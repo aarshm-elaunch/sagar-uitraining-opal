@@ -78,36 +78,6 @@
         font-size: 40px;
         text-align: center;
     }
-    .product_card{
-        padding: 25px;
-        width: 100%;
-        border: 1px solid #EFF3F9;
-        border-radius: 15px;
-        .img_wrapper{
-            width: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            img{
-                height: 100%;
-                width: 100% !important;
-                object-fit: cover;
-                object-position: center;
-            }
-        }
-        .item_wrapper{
-            margin-top: 16px;
-            .item_text{
-                margin-bottom: 8px;
-            }
-            .item_detail{
-                margin-top: 8px;
-                h3{
-                    color: #3B37DA;
-                    font-size: 16px;
-                }
-            }
-        }
-    }
     .btn_section{
         text-align: center;
         margin-top: 56px;
