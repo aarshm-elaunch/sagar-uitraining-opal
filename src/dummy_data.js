@@ -23,10 +23,11 @@ export const product_list = [
         image: product,
         name: "Item name",
         description: "Some item description goes here",
-        price: '2000',
+        price: 2000,
         colorName: '#ED5FDD',
         qty: 1,
         fevorite: false,
+        total: 2000,
     },
     {
         id: 'p2',
@@ -37,6 +38,7 @@ export const product_list = [
         colorName: '#6B5595',
         qty: 1,
         fevorite: false,
+        total: 2500,
     },
     {
         id: 'p3',
@@ -47,6 +49,7 @@ export const product_list = [
         colorName: '#ED5FDD',
         qty: 1,
         fevorite: false,
+        total: 25,
     },
     {
         id: 'p4',
@@ -57,6 +60,7 @@ export const product_list = [
         colorName: '#E7ED9B',
         qty: 1,
         fevorite: false,
+        total: 2000,
     },
     {
         id: 'p5',
@@ -67,6 +71,7 @@ export const product_list = [
         colorName: '#8BDB81',
         qty: 1,
         fevorite: false,
+        total: 1500,
     },
     {
         id: 'p6',
@@ -77,6 +82,7 @@ export const product_list = [
         colorName: '#E7ED9B',
         qty: 1,
         fevorite: false,
+        total: 3500,
     },
     {
         id: 'p7',
@@ -87,6 +93,7 @@ export const product_list = [
         colorName: '#8BDB81',
         qty: 1,
         fevorite: false,
+        total: 500,
     },
     {
         id: 'p8',
@@ -97,6 +104,7 @@ export const product_list = [
         colorName: '#55BAB9',
         qty: 1,
         fevorite: false,
+        total: 2500,
     },
 ];
 

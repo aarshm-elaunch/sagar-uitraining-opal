@@ -13,11 +13,11 @@ const CartItem = ({data}) => {
                         <h4>Item 1 name here</h4>
                         <Box className='inc_dec'>
                             <IconButton className='decreement'><RemoveOutlinedIcon /></IconButton>
-                            1
+                            {data.qty}
                             <IconButton className='increement'><AddOutlinedIcon /></IconButton>
                         </Box>
                     </Box>
-                    <p>${data.price}</p>
+                    <p>${(data.price)*(data.qty)}</p>
                 </Box>
             </Box>
             <Divider />

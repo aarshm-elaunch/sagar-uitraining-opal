@@ -2,13 +2,17 @@ import React from 'react';
 import { Box, Button, Checkbox, Container, FormControlLabel, FormGroup, IconButton } from '@mui/material';
 import CartItem from './CartItem';
 import useCart from '../../hooks/useCart';
+import { useNavigate } from 'react-router-dom';
 
 const CartList = () => {
+    const navigate = useNavigate()
     const { cartItems } = useCart();
+
+    console.log(cartItems);
 
     const total = () => {
         let subTotal = 0;
-        cartItems.map((item)=>subTotal =  subTotal + item.price)
+        cartItems.map((item)=>subTotal =  subTotal + item.total)
         return subTotal;
     }
 
@@ -29,7 +33,7 @@ const CartList = () => {
                     )}
                     <Box className='total'>
                         <h2>Sub Total</h2>
-                        <h2>{total()}</h2>
+                        <h2>${total()}</h2>
                     </Box>
                 </Box>
                 <Box className='form'>
@@ -41,7 +45,7 @@ const CartList = () => {
                             label="Make your own parcel"
                         />
                     </FormGroup>
-                    <Button className='btn_theam'>Checkout</Button>
+                    <Button className='btn_theam' onClick={()=>navigate('/checkout')}>Checkout</Button>
                 </Box>
             </Container>
         </Box>

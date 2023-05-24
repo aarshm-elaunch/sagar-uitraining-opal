@@ -1,5 +1,8 @@
 .empty_cart{
-    height: calc(100vh - 531px);
+    height: calc(100vh - 451px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     h2{
         margin-top: 80px;
         text-align: center;
@@ -7,7 +10,7 @@
 }
 
 .cartlist_wrapper{
-    width: 70%;
+    width: 55%;
     margin: auto;
     h2{
         font-size: 40px;

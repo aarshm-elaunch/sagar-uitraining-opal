@@ -7,23 +7,20 @@ import useCart from '../../hooks/useCart';
 import { product_list } from '../../dummy_data';
 
 const Price = ({data}) => {
-    const {cartItems, updateCart} = useCart()
+    const {cartItems, updateCart, increesQty} = useCart()
     const [val, setVal] = useState(1)
-    console.log(val);
  
     const handleCartOnClick = () => {
-        updateCart(data)
+        updateCart(data, val)
     }
 
-    // const increes = () => {
-    //     increesQty(data, val)
-    // }
+    const increes = () => {
+        increesQty(data, val)
+    }
 
     useEffect(()=>{
-        // increes();
+        increes();
     }, [val])
-
-    console.log('product_list', cartItems);
 
     return (
         <Box className='price_wrapper'>

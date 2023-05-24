@@ -117,13 +117,11 @@ const MainHeader = () => {
                         </Drawer>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
                             <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'flex', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
-                                {/* <Badge badgeContent={cartItems && cartItems.length} color="primary"> */}
                                 <IconButton onClick={() => navigate('/cart')}>
                                     <Badge badgeContent={cartItems && cartItems.length} color="primary">
                                         <ShoppingBagOutlinedIcon color="action" />
                                     </Badge>
                                 </IconButton>
-                                {/* <ShoppingBagOutlinedIcon color="action"  /> */}
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
                             <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'flex', xs: 'none' }, alignItems: 'center', gap: '24px' }}>

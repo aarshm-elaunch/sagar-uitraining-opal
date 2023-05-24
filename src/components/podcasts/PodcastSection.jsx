@@ -1,14 +1,33 @@
 import React, { useState } from 'react';
-import { Box, Button, Container, Grid, IconButton } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
+import { Box, Button, Container, Grid, IconButton, Slider, Typography } from '@mui/material';
 import podcast from '../../assets/images/podcast.png';
 import { podcast_list } from '../../dummy_data';
 import ReactAudioPlayer from 'react-audio-player';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+
+
+const TinyText = styled(Typography)({
+    fontSize: '0.75rem',
+    opacity: 0.38,
+    fontWeight: 500,
+    letterSpacing: 0.2,
+});
 
 const PodcastSection = () => {
     const [audio, setAudio] = useState(false);
     const [podcast, setPodcast] = useState();
+
+    const duration = 200;
+    const theme = useTheme();
+    const [position, setPosition] = useState(0);
+    function formatDuration(value) {
+        const minute = Math.floor(value / 60);
+        const secondLeft = value - minute * 60;
+        return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
+    }
 
     const handleClick = (data) => {
         setAudio(true);
@@ -29,7 +48,7 @@ const PodcastSection = () => {
                                     <Box className="content">
                                         <h5>{item.title}</h5>
                                         <p>{item.detail}</p>
-                                        <Button className='btn' onClick={()=>handleClick(item)}><PlayCircleOutlineOutlinedIcon /> 1 hr 18 min</Button>
+                                        <Button className='btn' onClick={() => handleClick(item)}><PlayCircleOutlineOutlinedIcon /> 1 hr 18 min</Button>
                                     </Box>
                                 </Box>
                             </Grid>
@@ -41,8 +60,8 @@ const PodcastSection = () => {
                 </Box>
             </Container>
             <Box className={audio ? 'audio_wrapper active' : 'audio_wrapper'}>
-            <IconButton className='close' onClick={()=>setAudio(false)}><CloseOutlinedIcon sx={{height: '12px', width: '12px'}}/></IconButton>
-                <Container sx={{minWidth: '80%'}}> 
+                <IconButton className='close' onClick={() => setAudio(false)}><CloseOutlinedIcon sx={{ height: '12px', width: '12px' }} /></IconButton>
+                <Container sx={{ minWidth: '80%' }}>
                     <Box className='audio_detail'>
                         <img src={podcast?.img} alt="img" />
                         <Box className='audio_control'>
@@ -51,6 +70,65 @@ const PodcastSection = () => {
                                 src={podcast?.audio}
                                 controls
                             />
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                                <Box sx={{ width: '339px' }}>
+                                    <Slider
+                                        aria-label="time-indicator"
+                                        size="small"
+                                        value={position}
+                                        min={0}
+                                        step={1}
+                                        max={duration}
+                                        onChange={(_, value) => setPosition(value)}
+                                        sx={{
+                                            color: theme.palette.mode === 'dark' ? '#fff' : '#3B37DA',
+                                            height: 4,
+                                            '& .MuiSlider-thumb': {
+                                                width: 20,
+                                                height: 20,
+                                                transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
+                                                '&:before': {
+                                                    boxShadow: '0 2px 12px 0 rgba(0,0,0,0.4)',
+                                                },
+                                                '&:hover, &.Mui-focusVisible': {
+                                                    boxShadow: `0px 0px 0px 8px ${theme.palette.mode === 'dark'
+                                                        ? 'rgb(255 255 255 / 16%)'
+                                                        : 'rgb(0 0 0 / 16%)'
+                                                        }`,
+                                                },
+                                                '&.Mui-active': {
+                                                    width: 20,
+                                                    height: 20,
+                                                },
+                                            },
+                                            '& .MuiSlider-rail': {
+                                                opacity: 0.28,
+                                            },
+                                        }}
+                                    />
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'space-between',
+                                            // mt: -2,
+                                        }}
+                                    >
+                                        <TinyText>{formatDuration(position)}</TinyText>
+                                        <TinyText>-{formatDuration(duration - position)}</TinyText>
+                                    </Box>
+                                </Box>
+                                <Button sx={{
+                                    background: '#3B37DA',
+                                    color: '#fff',
+                                    borderRadius: '50%',
+                                    height: '40px',
+                                    width: '40px',
+                                    minWidth: 'unset',
+                                    padding: '0px',
+                                    "&:hover": { backgroundColor: '#3B37DA' },
+                                }}><PlayArrowIcon /></Button>
+                            </Box>
                         </Box>
                     </Box>
                 </Container>

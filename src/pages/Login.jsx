@@ -26,7 +26,6 @@ const Login = () => {
         <Box sx={{height: 'calc(100vh - 80px)', overflowY: 'auto' }}>
         <Container>
             <Box sx={{ display: {lg: 'flex', md: 'flex', sm: 'block'}, alignItems: 'center', justifyContent: 'space-between',  mt: '60px' }}>
-                {/* <Box> */}
                     <Box sx={{ background: '#fff', padding: '48px', borderRadius: '20px' }}>
                         <Typography sx={{ fontSize: '35px', fontWeight: '700', mb: '16px' }}>Login</Typography>
                         <Typography>Login with Email or Google Account</Typography>
@@ -86,7 +85,7 @@ const Login = () => {
                             color: '#fff',
                             gap: '5px',
                             textTransform: 'capitalize'
-                        }}>Login</Button>
+                        }} onClick={()=>navigate('/home')}>Login</Button>
                         
 
                         <Box sx={{display: 'flex', gap: '5px'}}>
@@ -94,12 +93,9 @@ const Login = () => {
                             <Typography sx={{color: '#3B37DA', fontWeight: '400', cursor: 'pointer'}} onClick={()=>navigate('/signup')}>Register here</Typography>
                         </Box>
                     </Box>
-                {/* </Box> */}
-                {/* <Box> */}
                     <Box sx={{ display: {lg: 'flex', md: 'flex', sm: 'none', xs: 'none'}, alignItems: 'center', justifyContent: 'center' }}>
                         <img src={logo} alt="logo" />
                     </Box>
-                {/* </Box> */}
             </Box>
         </Container>
         </Box>

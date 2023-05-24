@@ -19,6 +19,7 @@ import ProductDetails from '../pages/ProductDetails';
 import Podcast from '../pages/Podcast';
 import WishList from '../pages/WishList';
 import Cart from '../pages/Cart';
+import Checkout from '../pages/Checkout';
 
 const Router = () => {
     const element = useRoutes([
@@ -50,6 +51,7 @@ const Router = () => {
             {path: 'podcast',element: <Podcast />},
             {path: 'wishlist',element: <WishList />},
             {path: 'cart',element: <Cart />},
+            {path: 'checkout',element: <Checkout />},
           ]
         },
       ]);
