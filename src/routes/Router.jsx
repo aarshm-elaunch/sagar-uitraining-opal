@@ -20,6 +20,7 @@ import Podcast from '../pages/Podcast';
 import WishList from '../pages/WishList';
 import Cart from '../pages/Cart';
 import Checkout from '../pages/Checkout';
+import Store from '../pages/Store';
 
 const Router = () => {
     const element = useRoutes([
@@ -43,7 +44,7 @@ const Router = () => {
             {path: 'auction',element: <Auction />},
             {path: 'products',element: <Product />},
             {path: 'chat',element: <Chat />},
-            {path: 'auctiondetail',element: <AuctionDetail />},
+            {path: 'auctiondetail/:id',element: <AuctionDetail />},
             {path: 'profile',element: <Profile />},
             {path: 'editprofile',element: <EditProfile />},
             {path: 'stripe',element: <Stripe />},
@@ -52,6 +53,7 @@ const Router = () => {
             {path: 'wishlist',element: <WishList />},
             {path: 'cart',element: <Cart />},
             {path: 'checkout',element: <Checkout />},
+            {path: 'store',element: <Store />},
           ]
         },
       ]);

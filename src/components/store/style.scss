@@ -1,0 +1,44 @@
+.store_wrapper{
+    .store_list{
+        margin: 40px 0;
+        .store_card{
+            border: 1px solid #EFF3F9;
+            border-radius: 15px;
+            box-shadow: 0px 1px 3px rgba(30, 38, 57, 0.08);
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            .img_wrapper{
+                height: 64px;
+                width: 64px;
+                border-radius: 50%;
+                overflow: hidden;
+                flex-shrink: 0;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: fill;
+                    object-position: center;
+                }
+            }
+            .store_detail{
+                h2{
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #0D0E11;
+                    padding-bottom: 8px;
+                }
+                p{
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #554F67;
+                }
+            }
+        }
+    }
+    .btn_section{
+        text-align: center;
+        padding-bottom: 80px;
+    }
+}

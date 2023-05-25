@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Divider, Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 
 const PriceDetail = () => {

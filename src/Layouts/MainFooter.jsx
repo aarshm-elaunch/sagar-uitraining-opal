@@ -3,6 +3,7 @@ import { Box, Button, Container, Divider, Grid, List, ListItem, ListItemText, Ty
 import logo from '../assets/images/footer_logo.png';
 import facebook from '../assets/images/facebook.png';
 import insta from '../assets/images/instagram.png';
+import { Link } from 'react-router-dom';
 
 const MainFooter = () => {
     return (
@@ -20,10 +21,10 @@ const MainFooter = () => {
                                 <Box className="footer_card">
                                     <h2>Quick Links</h2>
                                     <Box className="list">
-                                        <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Home</Typography>
-                                        <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Auctions</Typography>
-                                        <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Podcasts</Typography>
-                                        <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Discounts</Typography>
+                                        <Link to="/home" underline="none" style={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Home</Link>
+                                        <Link to="/auction" underline="none" style={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Auctions</Link>
+                                        <Link to="/podcast" underline="none" style={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Podcasts</Link>
+                                        <Link to="#" underline="none" style={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Discounts</Link>
                                     </Box>
                                 </Box>
                             </Grid>
@@ -31,8 +32,8 @@ const MainFooter = () => {
                                 <Box className="footer_card">
                                     <h2>Information</h2>
                                     <Box className="list">
-                                        <Typography href='/policy' component="a" sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Privacy Policy</Typography>
-                                        <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Terms and Conditions</Typography>
+                                        <Link to="/policy" underline="none" style={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Privacy Policy</Link>
+                                        <Link to="#" underline="none" style={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Terms and Conditions</Link>
                                     </Box>
                                 </Box>
                             </Grid>
@@ -40,15 +41,15 @@ const MainFooter = () => {
                                 <Box className="footer_card">
                                     <h2>Find us on Social Media</h2>
                                     <Box className="list">
-                                        <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }} className='media'><img src={facebook} alt="facebook" />Facebook</Typography>
-                                        <Typography component="a" sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }} className='media'><img src={insta} alt="instagram" />Instagram</Typography>
+                                        <Link to="#" underline="none" style={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }} className='media'><img src={facebook} alt="facebook" />Facebook</Link>
+                                        <Link to="#" underline="none" style={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }} className='media'><img src={insta} alt="instagram" />Instagram</Link>
                                     </Box>
                                 </Box>
                             </Grid>
                         </Grid>
                     </Box>
                 </Box>
-                <Divider sx={{"&.MuiDivider-root": {border: "1px solid #554f6680"}}} />
+                <Divider sx={{ "&.MuiDivider-root": { border: "1px solid #554f6680" } }} />
             </Container>
             <Box className="sub_footer">
                 <Typography>©2022, All Rights Reserved.</Typography>

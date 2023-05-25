@@ -1,17 +1,20 @@
 import React from 'react';
+import './style.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Avatar, Badge, Box, Container, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Menu, MenuItem, Typography } from '@mui/material';
 import logo from '../assets/images/logo.png'
 import MenuIcon from '@mui/icons-material/Menu';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import profile_pic from '../assets/images/profile_pic.png'
-import message from '../assets/images/message.png'
 import profile from '../assets/images/profile.png'
 import order from '../assets/images/order.png'
 import heart from '../assets/images/heart.png'
 import logout from '../assets/images/logout.png'
 import useCart from '../hooks/useCart';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import ForumIcon from '@mui/icons-material/Forum';
+import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 
 const ITEM_HEIGHT = 48;
@@ -43,6 +46,8 @@ const menuItems = [
 const MainHeader = () => {
     const navigate = useNavigate();
     const { cartItems } = useCart();
+    const url = window.location.pathname;
+
 
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -95,11 +100,11 @@ const MainHeader = () => {
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
                         <Box ><img src={logo} alt="logo" /></Box>
                         <Box sx={{ display: { lg: 'flex', md: 'none', sm: 'none', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
-                            <Link to="/home" underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
-                            <Link to="/auction" underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Auctions</Link>
-                            <Link to="/podcast" underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Podcasts</Link>
-                            <Link to="#" underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Stores</Link>
-                            <Link to="/about" underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>About us</Link>
+                                <Link to="/home" className={`link ${url === '/home' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
+                                <Link to="/auction" className={`link ${url === '/auction' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Auctions</Link>
+                                <Link to="/podcast" className={`link ${url === '/podcast' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Podcasts</Link>
+                                <Link to="/store" className={`link ${url === '/store' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Stores</Link>
+                                <Link to="/about" className={`link ${url === '/about' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>About us</Link>
                         </Box>
                         <Drawer
                             variant="temporary"
@@ -119,13 +124,13 @@ const MainHeader = () => {
                             <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'flex', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
                                 <IconButton onClick={() => navigate('/cart')}>
                                     <Badge badgeContent={cartItems && cartItems.length} color="primary">
-                                        <ShoppingBagOutlinedIcon color="action" />
+                                        {url === '/cart' ? <ShoppingBagIcon sx={{fill: '#3B37DA'}} /> : <ShoppingBagOutlinedIcon />}
                                     </Badge>
                                 </IconButton>
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
                             <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'flex', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
-                                <img src={message} alt="store" onClick={() => navigate('/chat')} />
+                                {url === '/chat' ? <ForumIcon sx={{fill: '#3B37DA'}} /> : <IconButton onClick={() => navigate('/chat')}><ForumOutlinedIcon /></IconButton>}
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -174,11 +179,6 @@ const MainHeader = () => {
                                     horizontal: 'right',
                                 }}
                             >
-                                {/* {navItems.map((option) => (
-                                    <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-                                        {option}
-                                    </MenuItem>
-                                ))} */}
                                 {menu}
                             </Menu>
                         </Box>

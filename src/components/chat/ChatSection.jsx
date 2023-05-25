@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
-import { Box, Button, Divider, FormControl, IconButton, InputAdornment, List, ListItem, OutlinedInput } from '@mui/material';
+import { Box, Divider, FormControl, IconButton, InputAdornment, List, ListItem, OutlinedInput } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import DoneIcon from '@mui/icons-material/Done';
 import chat from '../../assets/images/chat_icon.png';
 import { user_list } from '../../dummy_data';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
-import AttachmentIcon from '@mui/icons-material/Attachment';
-import Picker from 'emoji-picker-react';
-import DoneAllIcon from '@mui/icons-material/DoneAll';
 import user from '../../assets/images/user1.png'
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import OurChat from './OurChat';
 import WithChat from './WithChat';
 import InputForm from './InputForm';
@@ -25,7 +19,6 @@ const ChatSection = () => {
     const [inputStr, setInputStr] = useState("");
     const [showPicker, setShowPicker] = useState(false);
     const [searchInput] = useState();
-    const [pre, setPre] = useState([]);
 
     const searchUser = (val) => {
         let matchUser = data.filter((user) => user.name.toLowerCase().includes(val.toLowerCase()));
@@ -36,23 +29,6 @@ const ChatSection = () => {
         setUsers(user);
         user?.id !== users?.id && setInputStr('');
         setShowPicker(showPicker && false);
-    }
-
-    const onEmojiClick = (event, emojiObject) => {
-        console.log(emojiObject)
-        setInputStr((prevInput) => prevInput + emojiObject.emoji);
-        setShowPicker(false);
-    };
-
-    const previewFile = (e) => {
-        var file = e.target.files[0];
-        setPre([...pre, URL.createObjectURL(file)]);
-    }
-
-    const removeImage = (image) => {
-        const deleteImg = pre.filter((item)=>item !== image);
-
-        setPre(deleteImg);
     }
 
     return (

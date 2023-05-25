@@ -14,8 +14,6 @@ const ProductCard = ({data}) => {
         updateItems(e.target.checked, data)
     }
 
-    console.log(fevoriteItems);
-
     return (
         <Grid item xs={4} sm={4} md={3}>
             <Box className="product_card">
@@ -35,7 +33,7 @@ const ProductCard = ({data}) => {
                     <p>Some item description goes here</p>
                     <Box className="item_detail d_space_between">
                         <h3>${data.price}</h3>
-                        <Rating name="half-rating" readOnly defaultValue={5} precision={0.5} />
+                        <Rating name="half-rating" defaultValue={data.rating} precision={0.5} />
                     </Box>
                 </Box>
             </Box>

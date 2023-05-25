@@ -16,6 +16,11 @@ import podcast4 from '../src/assets/images/podcast_image/img4.png';
 import audio1 from '../src/assets/audio/music1.mp3';
 import audio2 from '../src/assets/audio/music2.mp3';
 import audio3 from '../src/assets/audio/music3.mp3';
+import auction_1 from '../src/assets/images/auction_1.png';
+import auction_2 from '../src/assets/images/auction_2.png';
+import auction_3 from '../src/assets/images/auction_3.png';
+import auction_4 from '../src/assets/images/auction_4.png';
+import store_img from '../src/assets/images/store/store1.png';
 
 export const product_list = [
     {
@@ -28,6 +33,7 @@ export const product_list = [
         qty: 1,
         fevorite: false,
         total: 2000,
+        rating: 3.5,
     },
     {
         id: 'p2',
@@ -39,6 +45,7 @@ export const product_list = [
         qty: 1,
         fevorite: false,
         total: 2500,
+        rating: 4,
     },
     {
         id: 'p3',
@@ -50,6 +57,7 @@ export const product_list = [
         qty: 1,
         fevorite: false,
         total: 25,
+        rating: 2.5,
     },
     {
         id: 'p4',
@@ -61,6 +69,7 @@ export const product_list = [
         qty: 1,
         fevorite: false,
         total: 2000,
+        rating: 1,
     },
     {
         id: 'p5',
@@ -72,6 +81,7 @@ export const product_list = [
         qty: 1,
         fevorite: false,
         total: 1500,
+        rating: 5,
     },
     {
         id: 'p6',
@@ -83,6 +93,7 @@ export const product_list = [
         qty: 1,
         fevorite: false,
         total: 3500,
+        rating: 3.5,
     },
     {
         id: 'p7',
@@ -94,6 +105,7 @@ export const product_list = [
         qty: 1,
         fevorite: false,
         total: 500,
+        rating: 4,
     },
     {
         id: 'p8',
@@ -105,6 +117,7 @@ export const product_list = [
         qty: 1,
         fevorite: false,
         total: 2500,
+        rating: 4.5,
     },
 ];
 
@@ -190,4 +203,104 @@ export const podcast_list = [
         detail: 'Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.',
         audio: audio1,
     },
+]
+
+export const home_auction = [
+    {
+        id: 'auction1',
+        img: auction_1,
+        title: 'Auction Title Goes Here',
+    },
+    {
+        id: 'auction2',
+        img: auction_2,
+        title: 'Auction Title Goes Here',
+    }
+]
+
+export const auction_list = [
+    {
+        id: 'auction1',
+        img: auction_1,
+        title: 'Auction Title Goes Here',
+    },
+    {
+        id: 'auction2',
+        img: auction_2,
+        title: 'Auction Title Goes Here',
+    },
+    {
+        id: 'auction3',
+        img: auction_3,
+        title: 'Auction Title Goes Here',
+    },
+    {
+        id: 'auction4',
+        img: auction_4,
+        title: 'Auction Title Goes Here',
+    }
+]
+
+export const storeList = [
+    {
+        img: store_img,
+        name: 'Store 1',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+    {
+        img: store_img,
+        name: 'Store 2',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+    {
+        img: store_img,
+        name: 'Store 3',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+    {
+        img: store_img,
+        name: 'Store 4',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+    {
+        img: store_img,
+        name: 'Store 5',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+    {
+        img: store_img,
+        name: 'Store 6',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+    {
+        img: store_img,
+        name: 'Store 7',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+    {
+        img: store_img,
+        name: 'Store 8',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+    {
+        img: store_img,
+        name: 'Store 9',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+    {
+        img: store_img,
+        name: 'Store 10',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+    {
+        img: store_img,
+        name: 'Store 11',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+    {
+        img: store_img,
+        name: 'Store 12',
+        description: 'Maecenas tempus tellus ik eget condimentum.',
+    },
+
 ]

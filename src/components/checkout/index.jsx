@@ -11,6 +11,8 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import Lottie from "lottie-react";
+import success from '../../assets/lottie/check.json'
 
 const style = {
     position: 'absolute',
@@ -359,6 +361,7 @@ const Chekout = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={styled}>
+                <Lottie animationData={success} loop={false}  className='bid'/>
                     <Typography sx={{ textAlign: 'center', fontSize: '24px', fontWeight: '700' }}>
                         Order placed successfully!
                     </Typography>

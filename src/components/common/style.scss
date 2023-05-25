@@ -29,3 +29,36 @@
         }
     }
 }
+
+.auction_card{
+    .image_wrapper{
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        position: relative;
+        .time{
+            position: absolute;
+            background: red;
+            height: 26px;
+            width: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            bottom: 15px;
+            right: 15px;
+        }
+    }
+    .text_content{
+        text-align: left;
+        margin-top: 24px;
+        h2{
+            margin-bottom: 16px;
+        }
+    }
+}

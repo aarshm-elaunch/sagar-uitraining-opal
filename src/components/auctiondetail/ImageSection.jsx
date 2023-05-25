@@ -1,34 +1,34 @@
 import React, { useState } from 'react';
 import { Box, Button, Checkbox, Divider, FormControl, Grid, InputAdornment, Modal, OutlinedInput, Typography } from '@mui/material';
-import auction_1 from '../../assets/images/auction_1.png'
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
+import Lottie from "lottie-react";
+import bid from '../../assets/lottie/bidding.json'
 
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    // width: '300px',
     bgcolor: 'background.paper',
     p: '32px',
     borderRadius: '15px'
 };
 
-const ImageSection = () => {
+const ImageSection = ({data}) => {
     const [open, setOpen] = useState(false);
     const [show, setShow] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         setOpen(false);
-        // setShow(true);
     }
     const handleShowOpen = () => setShow(true);
     const handleShowClose = () => setShow(false);
+
     return (
         <Box className='image_section'>
             <Box className='img_wrapper'>
-                <img src={auction_1} alt='auction' />
+                <img src={data?.img} alt='auction' />
             </Box>
             <Box className='detail'>
                 <h2>Auction Title Goes Here</h2>
@@ -90,6 +90,7 @@ const ImageSection = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
+                    <Lottie animationData={bid} loop={true}  className='bid'/>
                     <Typography sx={{ textAlign: 'center', fontSize: '24px', fontWeight: '700' }}>
                         Bid placed successfully!
                     </Typography>

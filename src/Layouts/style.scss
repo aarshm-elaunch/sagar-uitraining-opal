@@ -1,0 +1,16 @@
+a.link {
+    position: relative;
+
+    &.active {
+        font-weight: 600;
+        &::before {
+            content: '';
+            width: 100%;
+            height: 3px;
+            background: #3B37DA;
+            position: absolute;
+            top: -30px;
+            left: 0;
+        }
+    }
+}

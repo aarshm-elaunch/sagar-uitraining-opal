@@ -18,8 +18,6 @@ const ProductDetail = () => {
         product_list.map((item)=>item.id === id && setProduct(item))
     })
 
-    console.log('5555555555', product);
-
     return (
         <Box className='productdetail_wrapper'>
             <Box className='productdetail'>

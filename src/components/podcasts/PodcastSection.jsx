@@ -70,65 +70,6 @@ const PodcastSection = () => {
                                 src={podcast?.audio}
                                 controls
                             />
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                                <Box sx={{ width: '339px' }}>
-                                    <Slider
-                                        aria-label="time-indicator"
-                                        size="small"
-                                        value={position}
-                                        min={0}
-                                        step={1}
-                                        max={duration}
-                                        onChange={(_, value) => setPosition(value)}
-                                        sx={{
-                                            color: theme.palette.mode === 'dark' ? '#fff' : '#3B37DA',
-                                            height: 4,
-                                            '& .MuiSlider-thumb': {
-                                                width: 20,
-                                                height: 20,
-                                                transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
-                                                '&:before': {
-                                                    boxShadow: '0 2px 12px 0 rgba(0,0,0,0.4)',
-                                                },
-                                                '&:hover, &.Mui-focusVisible': {
-                                                    boxShadow: `0px 0px 0px 8px ${theme.palette.mode === 'dark'
-                                                        ? 'rgb(255 255 255 / 16%)'
-                                                        : 'rgb(0 0 0 / 16%)'
-                                                        }`,
-                                                },
-                                                '&.Mui-active': {
-                                                    width: 20,
-                                                    height: 20,
-                                                },
-                                            },
-                                            '& .MuiSlider-rail': {
-                                                opacity: 0.28,
-                                            },
-                                        }}
-                                    />
-                                    <Box
-                                        sx={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'space-between',
-                                            // mt: -2,
-                                        }}
-                                    >
-                                        <TinyText>{formatDuration(position)}</TinyText>
-                                        <TinyText>-{formatDuration(duration - position)}</TinyText>
-                                    </Box>
-                                </Box>
-                                <Button sx={{
-                                    background: '#3B37DA',
-                                    color: '#fff',
-                                    borderRadius: '50%',
-                                    height: '40px',
-                                    width: '40px',
-                                    minWidth: 'unset',
-                                    padding: '0px',
-                                    "&:hover": { backgroundColor: '#3B37DA' },
-                                }}><PlayArrowIcon /></Button>
-                            </Box>
                         </Box>
                     </Box>
                 </Container>

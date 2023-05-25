@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Checkbox, Container, FormControlLabel, FormGroup, IconButton } from '@mui/material';
+import { Box, Button, Checkbox, Container, FormControlLabel, FormGroup } from '@mui/material';
 import CartItem from './CartItem';
 import useCart from '../../hooks/useCart';
 import { useNavigate } from 'react-router-dom';

@@ -28,8 +28,6 @@
 
         .bid_section {
             padding: 24px 0;
-            // display: flex;
-            // align-items: center;
 
             .bid_detail {
                 flex-grow: 1;
@@ -50,10 +48,6 @@
 
             .bid_action {
                 flex-shrink: 0;
-                // display: flex;
-                // align-items: center;
-                // gap: 12px;
-                // text-align: end;
 
                 .input_field {
                     height: 48px !important;
@@ -141,4 +135,12 @@
             }
         }
     }
+}
+
+.bid{
+    text-align: center;
+    svg{
+        height: 50% !important;
+        width: 50% !important;
+    } 
 }

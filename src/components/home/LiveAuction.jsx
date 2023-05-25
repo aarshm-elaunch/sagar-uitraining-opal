@@ -4,6 +4,8 @@ import { styled } from '@mui/material/styles';
 import { Box, Button, Container, Grid } from '@mui/material';
 import auction_1 from '../../assets/images/auction_1.png'
 import auction_2 from '../../assets/images/auction_2.png'
+import AuctionCard from '../common/AuctionCard';
+import { home_auction } from '../../dummy_data';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -20,7 +22,7 @@ const LiveAuction = () => {
                 <Container sx={{ minWidth: '80%' }}>
                     <h1>Live Auction</h1>
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 3, sm: 10, md: 12 }}>
-                        <Grid item xs={4} sm={10} md={6}>
+                        {/* <Grid item xs={4} sm={10} md={6}>
                             <Box className="image_wrapper">
                                 <img src={auction_1} alt='auction' />
                                 <Box className="time">13:00</Box>
@@ -39,7 +41,10 @@ const LiveAuction = () => {
                                 <h2>Auction Title Goes Here</h2>
                                 <Button className='btn_theam'>Join Auction</Button>
                             </Box>
-                        </Grid>
+                        </Grid> */}
+                        {home_auction.map((item)=>
+                            <AuctionCard data={item} />
+                        )}
                     </Grid>
                 </Container>
             </Box>
