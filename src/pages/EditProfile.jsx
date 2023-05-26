@@ -50,13 +50,11 @@ const EditProfile = () => {
                                         />
                                     </FormControl>
                                 </Grid>
-                                <Grid item xs={4} sm={4} md={2}>
-                                    <Button className='btn_theam2' onClick={()=>navigate('/profile')}>cancle</Button>
-                                </Grid>
-                                <Grid item xs={4} sm={4} md={3}>
-                                    <Button className='btn_theam' onClick={()=>navigate('/profile')}>Save Changes</Button>
-                                </Grid>
                             </Grid>
+                        </Box>
+                        <Box className='btn_section'>
+                        <Button className='btn_theam2' onClick={()=>navigate('/profile')}>cancle</Button>
+                        <Button className='btn_theam' onClick={()=>navigate('/profile')}>Save Changes</Button>
                         </Box>
                     </Box>
                 </Box>

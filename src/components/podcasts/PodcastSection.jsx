@@ -63,13 +63,17 @@ const PodcastSection = () => {
                 <IconButton className='close' onClick={() => setAudio(false)}><CloseOutlinedIcon sx={{ height: '12px', width: '12px' }} /></IconButton>
                 <Container sx={{ minWidth: '80%' }}>
                     <Box className='audio_detail'>
-                        <img src={podcast?.img} alt="img" />
+                        <Box className='img_wrapper'>
+                            <img src={podcast?.img} alt="img" />
+                        </Box>
                         <Box className='audio_control'>
                             <h2>{podcast?.title}</h2>
-                            <ReactAudioPlayer
-                                src={podcast?.audio}
-                                controls
-                            />
+                            <Box className='audio'>
+                                <ReactAudioPlayer
+                                    src={podcast?.audio}
+                                    controls
+                                />
+                            </Box>
                         </Box>
                     </Box>
                 </Container>

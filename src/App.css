@@ -1,8 +1,11 @@
+@import "./assets/fonts/stylesheet.css";
+
 *{
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
   clear: both;
+  font-family: 'Inter' !important;
 }
 
 h1{

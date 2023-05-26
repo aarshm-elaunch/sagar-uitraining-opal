@@ -51,13 +51,26 @@
             align-items: center;
             gap: 24px;
             width: 100%;
+            .img_wrapper{
+                height: 64px;
+                width: 64px;
+                border-radius: 10px;
+                overflow: hidden;
+                flex-shrink: 0;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
 
             .audio_control {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 flex-grow: 1;
-
+                width: 100%;
                 h2 {
                     font-size: 16px;
                     font-weight: 600;
@@ -82,5 +95,19 @@
         h2{
             margin-bottom: 8px;
         }
+        .audio{
+            .react-audio-player{
+                width: 100%;
+            }
+        }
     }
+}
+
+@media(max-width: 375.98px){
+    .audio_detail{
+        flex-direction: column;
+        align-items: start !important;
+        gap: 8px !important;
+    }
+
 }

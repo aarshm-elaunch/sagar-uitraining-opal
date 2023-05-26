@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box, Button, Container, Grid } from '@mui/material';
 import podcast from '../../assets/images/podcast.png'
+import { useNavigate } from 'react-router-dom';
 
 const Podcast = () => {
+    const navigate = useNavigate();
     return (
         <Box className="podcast_section">
             <Container sx={{minWidth: '80%'}}>
@@ -58,7 +60,7 @@ const Podcast = () => {
                     </Grid>
                 </Grid>
                 <Box className="btn_section">
-                    <Button className='btn_theam'> View More Podcast </Button>
+                    <Button className='btn_theam' onClick={()=>navigate('/podcast')}> View More Podcast </Button>
                 </Box>
             </Container>
         </Box>

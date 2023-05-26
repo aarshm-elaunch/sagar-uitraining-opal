@@ -19,7 +19,36 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 const ITEM_HEIGHT = 48;
 const drawerWidth = 240;
-const navItems = ["Home", "Auctions", "Podcasts", "Stores", "About us"];
+const navItems = [
+    {
+        item: 'Home',
+        location: '/home'
+    },
+    {
+        item: 'Auctions',
+        location: '/auction'
+    },
+    {
+        item: 'Podcasts',
+        location: '/podcast'
+    },
+    {
+        item: 'Stores',
+        location: '/store'
+    },
+    {
+        item: 'Cart',
+        location: '/cart'
+    },
+    {
+        item: 'Chat',
+        location: '/chat'
+    },
+    {
+        item: 'About us',
+        location: '/about'
+    }
+];
 const menuItems = [
     {
         icon: profile,
@@ -29,7 +58,7 @@ const menuItems = [
     {
         icon: order,
         item: 'My Order',
-        location: '/profile'
+        location: '/myorder'
     },
     {
         icon: heart,
@@ -74,7 +103,7 @@ const MainHeader = () => {
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
                         <ListItemButton sx={{ textAlign: "center" }}>
-                            <ListItemText primary={item} />
+                            <ListItemText primary={item.item} onClick={()=>navigate(item.location)}/>
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -100,11 +129,11 @@ const MainHeader = () => {
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
                         <Box ><img src={logo} alt="logo" /></Box>
                         <Box sx={{ display: { lg: 'flex', md: 'none', sm: 'none', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
-                                <Link to="/home" className={`link ${url === '/home' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
-                                <Link to="/auction" className={`link ${url === '/auction' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Auctions</Link>
-                                <Link to="/podcast" className={`link ${url === '/podcast' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Podcasts</Link>
-                                <Link to="/store" className={`link ${url === '/store' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Stores</Link>
-                                <Link to="/about" className={`link ${url === '/about' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>About us</Link>
+                            <Link to="/home" className={`link ${url === '/home' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
+                            <Link to="/auction" className={`link ${url === '/auction' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Auctions</Link>
+                            <Link to="/podcast" className={`link ${url === '/podcast' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Podcasts</Link>
+                            <Link to="/store" className={`link ${url === '/store' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Stores</Link>
+                            <Link to="/about" className={`link ${url === '/about' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>About us</Link>
                         </Box>
                         <Drawer
                             variant="temporary"
@@ -121,16 +150,16 @@ const MainHeader = () => {
                             {drawer}
                         </Drawer>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-                            <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'flex', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
+                            <Box sx={{ display: { lg: 'flex', md: 'none', sm: 'none', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
                                 <IconButton onClick={() => navigate('/cart')}>
-                                    <Badge badgeContent={cartItems && cartItems.length} color="primary">
-                                        {url === '/cart' ? <ShoppingBagIcon sx={{fill: '#3B37DA'}} /> : <ShoppingBagOutlinedIcon />}
+                                    <Badge badgeContent={cartItems && cartItems.length} color="primary" sx={{'.css-16ksoic-MuiBadge-badge': {height: '15px', minWidth: '15px', fontSize: '0.50rem'}}}>
+                                        {url === '/cart' ? <ShoppingBagIcon sx={{ fill: '#3B37DA' }} /> : <ShoppingBagOutlinedIcon />}
                                     </Badge>
                                 </IconButton>
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
-                            <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'flex', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
-                                {url === '/chat' ? <ForumIcon sx={{fill: '#3B37DA'}} /> : <IconButton onClick={() => navigate('/chat')}><ForumOutlinedIcon /></IconButton>}
+                            <Box sx={{ display: { lg: 'flex', md: 'none', sm: 'none', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
+                                {url === '/chat' ? <ForumIcon sx={{ fill: '#3B37DA' }} /> : <IconButton onClick={() => navigate('/chat')}><ForumOutlinedIcon /></IconButton>}
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>

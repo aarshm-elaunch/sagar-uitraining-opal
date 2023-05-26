@@ -1,5 +1,5 @@
 .empty_cart{
-    height: calc(100vh - 451px);
+    height: calc(100vh - 443px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +10,7 @@
 }
 
 .cartlist_wrapper{
-    width: 55%;
+    max-width: 55%;
     margin: auto;
     h2{
         font-size: 40px;
@@ -42,6 +42,7 @@
             align-items: center;
             justify-content: space-between;
             flex-grow: 1;
+            width: 100%;
             .title_main{
                 h4{
                     font-size: 14px;
@@ -91,5 +92,35 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: 40px;
+    }
+}
+
+@media(max-width: 991.98px){
+    .cartlist_wrapper{
+        max-width: 100%;
+    }
+}
+
+@media(max-width: 424.98px){
+    .cartlist_wrapper{
+        .item_wrapper{
+            .item_details{
+                flex-direction: column;
+                align-items: start;
+            }
+        }
+    }
+}
+
+@media(max-width: 368.98px){
+    .cartlist_wrapper{
+        .form{
+            flex-direction: column;
+            align-items: start;
+            .btn_theam{
+                width: 100% !important;
+                margin-top: 8px;
+            }
+        }
     }
 }

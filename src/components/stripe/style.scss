@@ -38,3 +38,19 @@
         }
     }
 }
+
+@media(max-width: 991.98px){
+    .stripe_wrapper{
+        width: 100% !important;
+    }
+}
+
+@media(max-width: 425.98px){
+    .stripe_wrapper{
+        .details_box{
+            .btn_section{
+                flex-direction: column;
+            }
+        }
+    }
+}

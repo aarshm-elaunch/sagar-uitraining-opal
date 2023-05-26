@@ -21,6 +21,7 @@ import WishList from '../pages/WishList';
 import Cart from '../pages/Cart';
 import Checkout from '../pages/Checkout';
 import Store from '../pages/Store';
+import MyOrder from '../pages/MyOrder';
 
 const Router = () => {
     const element = useRoutes([
@@ -54,6 +55,7 @@ const Router = () => {
             {path: 'cart',element: <Cart />},
             {path: 'checkout',element: <Checkout />},
             {path: 'store',element: <Store />},
+            {path: 'myorder',element: <MyOrder />},
           ]
         },
       ]);
