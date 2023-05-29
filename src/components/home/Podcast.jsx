@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Button, Container, Grid } from '@mui/material';
 import podcast from '../../assets/images/podcast.png'
 import { useNavigate } from 'react-router-dom';
+import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 
 const Podcast = () => {
     const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Podcast = () => {
                             <Box className="content">
                                 <h5>Podcast title goes here</h5>
                                 <p>Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.</p>
-                                <Button className='btn'>1 hr 18 min</Button>
+                                <Button className='btn'><PlayCircleOutlineOutlinedIcon /> 1 hr 18 min</Button>
                             </Box>
                         </Box>
                     </Grid>
@@ -30,7 +31,7 @@ const Podcast = () => {
                             <Box className="content">
                                 <h5>Podcast title goes here</h5>
                                 <p>Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.</p>
-                                <Button className='btn'>1 hr 18 min</Button>
+                                <Button className='btn'><PlayCircleOutlineOutlinedIcon /> 1 hr 18 min</Button>
                             </Box>
                         </Box>
                     </Grid>
@@ -42,7 +43,7 @@ const Podcast = () => {
                             <Box className="content">
                                 <h5>Podcast title goes here</h5>
                                 <p>Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.</p>
-                                <Button className='btn'>1 hr 18 min</Button>
+                                <Button className='btn'><PlayCircleOutlineOutlinedIcon /> 1 hr 18 min</Button>
                             </Box>
                         </Box>
                     </Grid>
@@ -54,7 +55,7 @@ const Podcast = () => {
                             <Box className="content">
                                 <h5>Podcast title goes here</h5>
                                 <p>Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.</p>
-                                <Button className='btn'>1 hr 18 min</Button>
+                                <Button className='btn'><PlayCircleOutlineOutlinedIcon /> 1 hr 18 min</Button>
                             </Box>
                         </Box>
                     </Grid>

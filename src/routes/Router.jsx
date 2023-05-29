@@ -22,6 +22,7 @@ import Cart from '../pages/Cart';
 import Checkout from '../pages/Checkout';
 import Store from '../pages/Store';
 import MyOrder from '../pages/MyOrder';
+import VendorDetails from '../pages/VendorDetails';
 
 const Router = () => {
     const element = useRoutes([
@@ -56,6 +57,7 @@ const Router = () => {
             {path: 'checkout',element: <Checkout />},
             {path: 'store',element: <Store />},
             {path: 'myorder',element: <MyOrder />},
+            {path: 'vendor/:id',element: <VendorDetails />},
           ]
         },
       ]);

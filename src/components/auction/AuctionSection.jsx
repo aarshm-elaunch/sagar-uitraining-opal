@@ -9,7 +9,7 @@ const AuctionSection = () => {
             <Container sx={{ minWidth: '80%' }}>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 3, sm: 10, md: 12 }}>
                     {auction_list.map((item)=>
-                        <AuctionCard data={item}/>
+                        <AuctionCard data={item} color='#000'/>
                     )}
                 </Grid>
                 <Box className="btn_section">
