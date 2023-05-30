@@ -9,7 +9,6 @@ import ProductCard from '../common/ProductCard';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 const WishListed = () => {
     const { fevoriteItems } = useWishList();
-    console.log(fevoriteItems);
     return (
         <Box className='wishlist_wrapper'>
             <Container sx={{ minWidth: '80%' }}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, FormControl, IconButton, InputAdornment, OutlinedInput, Typography } from '@mui/material';
 import Picker from 'emoji-picker-react';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -7,6 +7,7 @@ import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import AttachmentIcon from '@mui/icons-material/Attachment';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import DescriptionIcon from '@mui/icons-material/Description';
+import SendIcon from '@mui/icons-material/Send';
 
 const InputForm = ({ user }) => {
     const [showPicker, setShowPicker] = useState(false);
@@ -19,7 +20,6 @@ const InputForm = ({ user }) => {
     };
 
     const previewFile = (e) => {
-        console.log(e.target.files[0])
         var file = e.target.files[0];
         setPre([...pre, file]);
     }
@@ -46,12 +46,12 @@ const InputForm = ({ user }) => {
                                 {img.type.includes("text") ?
                                     <Box>
                                         <DescriptionIcon className='icn' sx={{ fill: '#3B37DA' }} />
-                                        <Typography sx={{textAlign: 'center'}}>{img.name}</Typography>
+                                        <Typography sx={{ textAlign: 'center' }}>{img.name}</Typography>
                                     </Box> :
                                     img.type.includes("pdf") ?
                                         <Box>
-                                            <PictureAsPdfIcon className='icn' sx={{fill: '#DE0000'}}/>
-                                            <Typography sx={{textAlign: 'center'}}>{img.name}</Typography>
+                                            <PictureAsPdfIcon className='icn' sx={{ fill: '#DE0000' }} />
+                                            <Typography sx={{ textAlign: 'center' }}>{img.name}</Typography>
                                         </Box> :
                                         <img src={URL.createObjectURL(img)} alt='img' />
                                 }
@@ -95,7 +95,7 @@ const InputForm = ({ user }) => {
                         </InputAdornment>
                     }
                     endAdornment={
-                        !inputStr && <InputAdornment position="end">
+                        (!inputStr && !pre.length) ? <InputAdornment position="end">
                             <IconButton
                                 variant="contained"
                                 component="label"
@@ -103,7 +103,15 @@ const InputForm = ({ user }) => {
                                 <AttachmentIcon sx={{ transform: 'rotate(-45deg)', fill: '#000' }} color='#000 !important' />
                                 <input type="file" hidden onChange={(e) => previewFile(e)} />
                             </IconButton>
-                        </InputAdornment>
+                        </InputAdornment> :
+                            <InputAdornment position="end">
+                                <IconButton
+                                    variant="contained"
+                                    component="label"
+                                >
+                                    <SendIcon sx={{ fill: '#3B37DA' }} />
+                                </IconButton>
+                            </InputAdornment>
                     }
                     className='input_massage'
                     sx={{ '& .MuiOutlinedInput-notchedOutline': { border: '1px solid #EFF3F9 !important' }, borderRadius: showPicker ? '0' : pre.length ? '0' : '24px' }}

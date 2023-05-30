@@ -4,23 +4,28 @@ import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import useCart from '../../hooks/useCart';
-import { product_list } from '../../dummy_data';
 
 const Price = ({data}) => {
-    const {cartItems, updateCart, increesQty} = useCart()
+    const {cartItems, updateCart, updateQty} = useCart()
     const [val, setVal] = useState(1)
  
     const handleCartOnClick = () => {
         updateCart(data, val)
     }
 
-    const increes = () => {
-        increesQty(data, val)
+    const increes = (item) => {
+        updateQty(item, val)
     }
 
     useEffect(()=>{
-        increes();
-    }, [val])
+        increes(data);
+    }, [val]);
+
+    useEffect(()=>{
+        if(cartItems.length){
+            cartItems.map((item)=>item?.id === data?.id && setVal(item?.qty))
+        }
+    }, [data])
 
     return (
         <Box className='price_wrapper'>
@@ -33,7 +38,7 @@ const Price = ({data}) => {
                     <Grid container spacing={{xs: 1, md: 2}} columns={{xs: 4, sm: 8, md: 12}}>
                         <Grid item xs={4} sm={4} md={6}>
                             <Box className='inc_dec'>
-                                <IconButton className='decreement'><RemoveOutlinedIcon /></IconButton>
+                                <IconButton className='decreement' disabled={val === 0 ? true : false} onClick={()=>setVal(val-1)}><RemoveOutlinedIcon /></IconButton>
                                 {val}
                                 <IconButton className='increement' onClick={()=>setVal(val+1)}><AddOutlinedIcon /></IconButton>
                             </Box>

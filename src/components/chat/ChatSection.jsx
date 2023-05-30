@@ -12,7 +12,7 @@ import InputForm from './InputForm';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const ChatSection = () => {
-    const [data, setdata] = useState(user_list)
+    const [data] = useState(user_list)
     const [list, setList] = useState(data)
 
     const [users, setUsers] = useState();
@@ -84,7 +84,9 @@ const ChatSection = () => {
                                     <Box className="img_wrapper"><img src={users.dp} alt="dp" /></Box>
                                     <h3 className="header_name">{users.name}</h3>
                                 </Box>
-                                <Box className="dlt_icn"><DeleteOutlineIcon sx={{ color: '#FE5F7C' }} /></Box>
+                                <IconButton className="dlt_icn"> 
+                                <DeleteOutlineIcon sx={{ color: '#FE5F7C' }} />
+                                </IconButton>
                             </Box>
                         </Box>
                         <Divider />

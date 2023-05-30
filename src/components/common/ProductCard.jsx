@@ -22,7 +22,7 @@ const ProductCard = ({data}) => {
                 </Box>
                 <Box className="item_wrapper">
                     <Box className="item_text d_space_between">
-                        <h3>{data.name}</h3>
+                        <h3 onClick={()=>navigate(`/productdetail/${data.id}`)}>{data.name}</h3>
                         <Checkbox
                             icon={<FavoriteBorder />}
                             checkedIcon={<Favorite sx={{ fill: 'red' }} />}

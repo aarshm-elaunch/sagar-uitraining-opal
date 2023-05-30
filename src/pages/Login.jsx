@@ -7,11 +7,10 @@ import {
     Divider,
     FormControl,
     FormControlLabel,
-    Grid,
     IconButton,
     InputAdornment,
+    InputLabel,
     OutlinedInput,
-    TextField,
     Typography
 } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
@@ -23,9 +22,9 @@ const Login = () => {
     const [show, setShow] = useState(false);
     const navigate = useNavigate();
     return (
-        <Box sx={{height: 'calc(100vh - 80px)', overflowY: 'auto' }}>
-        <Container>
-            <Box sx={{ display: {lg: 'flex', md: 'flex', sm: 'block'}, alignItems: 'center', justifyContent: 'space-between',  mt: '60px' }}>
+        <Box sx={{ height: 'calc(100vh - 80px)', overflowY: 'auto' }}>
+            <Container sx={{ minWidth: '80%' }}>
+                <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'block' }, alignItems: 'center', justifyContent: 'space-between', mt: '60px' }}>
                     <Box sx={{ background: '#fff', padding: '48px', borderRadius: '20px' }}>
                         <Typography sx={{ fontSize: '35px', fontWeight: '700', mb: '16px' }}>Login</Typography>
                         <Typography>Login with Email or Google Account</Typography>
@@ -41,32 +40,42 @@ const Login = () => {
                             color: '#000',
                             gap: '5px',
                             textTransform: 'capitalize'
-                        }}><img src={google} alt="logo"/>Login with Google</Button>
+                        }}><img src={google} alt="logo" />Login with Google</Button>
 
-                        <Divider sx={{mb: '8px'}}>Login With Email</Divider>
+                        <Divider sx={{ mb: '8px' }}>Login With Email</Divider>
 
 
-                        <TextField id="outlined-basic" variant="outlined" placeholder='Email address' sx={{ m: '24px 0', width: '100%', borderRadius: '8px', "&:hover": { backgroundColor: '#ffffff', border: 'none' } }} />
-                        <FormControl sx={{ width: '100%', borderRadius: '8px', "&:hover": { backgroundColor: '#ffffff', border: 'none' } }} variant="outlined">
+                        <FormControl fullWidth sx={{margin: '24px 0'}}>
+                            <InputLabel htmlFor="outlined-adornment-amount">Email address</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-amount"
+                                className='input_field'
+                                label="Email address"
+                                sx={{borderRadius: '10px'}}
+                            />
+                        </FormControl>
+                        <FormControl fullWidth>
+                        <InputLabel htmlFor="outlined-adornment-amount">Password</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-password"
                                 type={show ? 'text' : 'password'}
-                                placeholder='Password'
+                                label="password"
                                 endAdornment={
                                     <InputAdornment position="end">
                                         <IconButton
                                             aria-label="toggle password visibility"
                                             edge="end"
-                                            onClick={()=>setShow(!show)}
+                                            onClick={() => setShow(!show)}
                                         >
                                             {show ? <VisibilityOff /> : <Visibility />}
                                         </IconButton>
                                     </InputAdornment>
                                 }
+                                sx={{ borderRadius: '10px' }}
                             />
                         </FormControl>
 
-                        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', m: '24px 0 8px 0'}}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', m: '24px 0 8px 0', flexDirection:{lg: 'row', md: 'row', sm: 'row', xs: 'column'} }}>
                             <FormControlLabel control={<Checkbox />} label="Remember me" />
                             <Typography sx={{
                                 color: '#3B37DA',
@@ -85,19 +94,19 @@ const Login = () => {
                             color: '#fff',
                             gap: '5px',
                             textTransform: 'capitalize'
-                        }} onClick={()=>navigate('/home')}>Login</Button>
-                        
+                        }} onClick={() => navigate('/home')}>Login</Button>
 
-                        <Box sx={{display: 'flex', gap: '5px'}}>
+
+                        <Box sx={{ display: 'flex', gap: '5px', flexDirection:{lg: 'row', md: 'row', sm: 'row', xs: 'column'} }}>
                             <Typography> Don't have an account yet? </Typography>
-                            <Typography sx={{color: '#3B37DA', fontWeight: '400', cursor: 'pointer'}} onClick={()=>navigate('/signup')}>Register here</Typography>
+                            <Typography sx={{ color: '#3B37DA', fontWeight: '400', cursor: 'pointer' }} onClick={() => navigate('/signup')}>Register here</Typography>
                         </Box>
                     </Box>
-                    <Box sx={{ display: {lg: 'flex', md: 'flex', sm: 'none', xs: 'none'}, alignItems: 'center', justifyContent: 'center' }}>
+                    <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'none', xs: 'none' }, alignItems: 'center', justifyContent: 'center' }}>
                         <img src={logo} alt="logo" />
                     </Box>
-            </Box>
-        </Container>
+                </Box>
+            </Container>
         </Box>
 
     )

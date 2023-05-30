@@ -8,15 +8,11 @@ const CartList = () => {
     const navigate = useNavigate()
     const { cartItems } = useCart();
 
-    console.log(cartItems);
-
     const total = () => {
         let subTotal = 0;
         cartItems.map((item)=>subTotal =  subTotal + item.total)
         return subTotal;
     }
-
-    console.log(total());
 
     return (
         !cartItems.length ?

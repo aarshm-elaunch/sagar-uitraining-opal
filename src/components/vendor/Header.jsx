@@ -6,7 +6,7 @@ const Header = ({data}) => {
     return (
         <Box className='header_wrapper'>
             <img src={vender_img} alt="background" />
-            <Box className='title_wrapper'>
+            <Box className='title_wrapper1'>
                 <Box className='img_wrapper'>
                 <img src={data?.img} alt="dp" />
                 </Box>

@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Avatar, Badge, Box, Container, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Menu, MenuItem, Typography } from '@mui/material';
 import logo from '../assets/images/logo.png'
 import MenuIcon from '@mui/icons-material/Menu';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import profile_pic from '../assets/images/profile_pic.png'
 import profile from '../assets/images/profile.png'
 import order from '../assets/images/order.png'
@@ -18,7 +17,7 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 
 const ITEM_HEIGHT = 48;
-const drawerWidth = 240;
+const drawerWidth = 150;
 const navItems = [
     {
         item: 'Home',
@@ -35,14 +34,6 @@ const navItems = [
     {
         item: 'Stores',
         location: '/store'
-    },
-    {
-        item: 'Cart',
-        location: '/cart'
-    },
-    {
-        item: 'Chat',
-        location: '/chat'
     },
     {
         item: 'About us',
@@ -94,16 +85,12 @@ const MainHeader = () => {
     };
 
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                <img src={logo} alt="logo" />
-            </Typography>
-            <Divider />
+        <Box onClick={handleDrawerToggle}>
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: "center" }}>
-                            <ListItemText primary={item.item} onClick={()=>navigate(item.location)}/>
+                        <ListItemButton>
+                            <ListItemText primary={item.item} onClick={() => navigate(item.location)} />
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -127,7 +114,7 @@ const MainHeader = () => {
             <AppBar position="fixed" sx={{ background: '#fff', color: '#000', padding: '10px' }}>
                 <Container sx={{ minWidth: '80%' }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
-                        <Box ><img src={logo} alt="logo" /></Box>
+                        <Box ><img src={logo} alt="logo" onClick={() => navigate('/home')} /></Box>
                         <Box sx={{ display: { lg: 'flex', md: 'none', sm: 'none', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
                             <Link to="/home" className={`link ${url === '/home' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
                             <Link to="/auction" className={`link ${url === '/auction' && 'active'}`} underline="none" style={{ color: 'inherit', textDecoration: 'none' }}>Auctions</Link>
@@ -149,22 +136,20 @@ const MainHeader = () => {
                         >
                             {drawer}
                         </Drawer>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-                            <Box sx={{ display: { lg: 'flex', md: 'none', sm: 'none', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: { lg: '24px', md: '18px', sm: '14px', xs: '8px' } }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: { lg: '24px', md: '18px', sm: '14px', xs: '8px' } }}>
                                 <IconButton onClick={() => navigate('/cart')}>
-                                    <Badge badgeContent={cartItems && cartItems.length} color="primary" sx={{'.css-16ksoic-MuiBadge-badge': {height: '15px', minWidth: '15px', fontSize: '0.50rem'}}}>
+                                    <Badge badgeContent={cartItems && cartItems.length} color="primary" sx={{ '.css-16ksoic-MuiBadge-badge': { height: '15px', minWidth: '15px', fontSize: '0.50rem' } }}>
                                         {url === '/cart' ? <ShoppingBagIcon sx={{ fill: '#3B37DA' }} /> : <ShoppingBagOutlinedIcon />}
                                     </Badge>
                                 </IconButton>
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
-                            <Box sx={{ display: { lg: 'flex', md: 'none', sm: 'none', xs: 'none' }, alignItems: 'center', gap: '24px' }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: { lg: '24px', md: '18px', sm: '14px', xs: '8px' } }}>
                                 {url === '/chat' ? <ForumIcon sx={{ fill: '#3B37DA' }} /> : <IconButton onClick={() => navigate('/chat')}><ForumOutlinedIcon /></IconButton>}
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                <Avatar alt="Remy Sharp" src={profile_pic} />
-                                <Typography>Marques Brownlee</Typography>
                                 <IconButton
                                     aria-label="more"
                                     id="long-button"
@@ -173,7 +158,7 @@ const MainHeader = () => {
                                     aria-haspopup="true"
                                     onClick={handleClick}
                                 >
-                                    <ExpandMoreIcon />
+                                    <Avatar alt="Remy Sharp" src={profile_pic} />
                                 </IconButton>
                             </Box>
                             <IconButton
@@ -181,7 +166,7 @@ const MainHeader = () => {
                                 aria-label="open drawer"
                                 edge="start"
                                 onClick={handleDrawerToggle}
-                                sx={{ mr: 2, display: { lg: 'none', md: 'block', sm: 'block', xs: 'block' } }}
+                                sx={{ mr: '-15px', display: { lg: 'none', md: 'block', sm: 'block', xs: 'block' } }}
                             >
                                 <MenuIcon />
                             </IconButton>

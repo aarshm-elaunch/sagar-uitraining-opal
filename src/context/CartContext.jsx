@@ -4,20 +4,26 @@ const Cart = createContext();
 
 const CartContext = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
-    const [prod, setProd] = useState();
 
     const updateCart = (cartItem, qty) => {
         const checked = cartItems.findIndex((item) => item.id === cartItem.id) > -1
-        setCartItems(prev => [...prev, cartItem]);
+        !checked && setCartItems(prev => [...prev, { ...cartItem, 'qty': qty, 'total': cartItem?.price * qty }]);
     }
 
-    const increesQty = (data, val) => {
-        setProd({...data, 'qty': val, 'total': data?.price * val});
+    const updateQty = (data, val) => {
+        const updateState = cartItems?.map((item)=>{
+            if(item?.id === data?.id){
+                return {...item, 'qty': val, 'total': data?.price*val};
+            }
+            return item
+        })
+        setCartItems(updateState);
+
     }
 
 
     return (
-        <Cart.Provider value={{ cartItems, updateCart, increesQty }}>
+        <Cart.Provider value={{ cartItems, updateCart, updateQty }}>
             {children}
         </Cart.Provider>
     );

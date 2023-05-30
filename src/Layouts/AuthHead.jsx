@@ -5,7 +5,7 @@ import logo from '../assets/images/logo.png'
 import store from '../assets/images/store.png'
 import MenuIcon from '@mui/icons-material/Menu';
 
-const drawerWidth = 240;
+const drawerWidth = 150;
 const navItems = ["Home", "Auctions", "Podcasts", "Stores", "About us"];
 
 const AuthHead = () => {
@@ -18,15 +18,11 @@ const AuthHead = () => {
   };
     
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-          <Typography variant="h6" sx={{ my: 2 }}>
-          <img src={logo} alt="logo" />
-          </Typography>
-          <Divider />
+        <Box onClick={handleDrawerToggle}>
           <List>
             {navItems.map((item) => (
               <ListItem key={item} disablePadding>
-                <ListItemButton sx={{ textAlign: "center" }}>
+                <ListItemButton>
                   <ListItemText primary={item} />
                 </ListItemButton>
               </ListItem>
@@ -72,18 +68,15 @@ const AuthHead = () => {
                                     background: '#E1E4FA',
                                     "&:hover": { backgroundColor: '#E1E4FA' },
                                     color: '#3B37DA',
-                                    // width: '138px',
                                     height: '48px',
                                     borderRadius: '12px',
                                     padding: '18px, 24px, 18px, 24px',
-                                    // mr: '16px',
                                     textTransform: 'capitalize'
                                 }} >Vendor Login</Button>
                                 <Button sx={{
                                     background: '#3B37DA',
                                     "&:hover": { backgroundColor: '#3B37DA' },
                                     color: '#fff',
-                                    // width: '94px',
                                     height: '48px',
                                     borderRadius: '12px',
                                     padding: '18px, 24px, 18px, 24px',
@@ -95,7 +88,7 @@ const AuthHead = () => {
                                 aria-label="open drawer"
                                 edge="start"
                                 onClick={handleDrawerToggle}
-                                sx={{ mr: 2, display: { lg: 'none', md: 'block', sm: 'block', xs: 'block' } }}
+                                sx={{ mr: '-15px', display: { lg: 'none', md: 'block', sm: 'block', xs: 'block' } }}
                             >
                                 <MenuIcon />
                             </IconButton>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Container, Divider, FormControl, FormControlLabel, Grid, IconButton, InputLabel, Modal, OutlinedInput, Radio, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, Divider, FormControl, FormControlLabel, Grid, IconButton, InputLabel, Modal, OutlinedInput, Radio, Typography } from '@mui/material';
 import map from '../../assets/images/map.png';
 import payment1 from '../../assets/images/Payment1.png';
 import payment2 from '../../assets/images/Payment2.png';
@@ -13,13 +13,13 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import Lottie from "lottie-react";
 import success from '../../assets/lottie/check.json'
+import { useNavigate } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    // width: '300px',
     bgcolor: 'background.paper',
     borderRadius: '15px'
 };
@@ -29,7 +29,6 @@ const styled = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    // width: '300px',
     padding: '32px',
     bgcolor: 'background.paper',
     borderRadius: '15px'
@@ -46,6 +45,7 @@ const Chekout = () => {
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
     const handleShowClose = () => setShow(false);
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         setSelectedValue(event.target.value);
@@ -156,21 +156,21 @@ const Chekout = () => {
                                 <Box className='summry_wrapper'>
                                     <h2>Order Summary</h2>
                                     <Box className='order_history'>
-                                        <Box className='order_wrapper'>
+                                        <Box className='order_wrapper1'>
                                             <Box className='qty'>X1</Box>
                                             <Box className='order_detail'>
                                                 <p>Item 1 name here</p>
                                                 <p>$300</p>
                                             </Box>
                                         </Box>
-                                        <Box className='order_wrapper'>
+                                        <Box className='order_wrapper1'>
                                             <Box className='qty'>X1</Box>
                                             <Box className='order_detail'>
                                                 <p>Item 2 name here</p>
                                                 <p>$300</p>
                                             </Box>
                                         </Box>
-                                        <Box className='order_wrapper'>
+                                        <Box className='order_wrapper1'>
                                             <Box className='qty'>X1</Box>
                                             <Box className='order_detail'>
                                                 <p>Item 3 name here</p>
@@ -366,7 +366,7 @@ const Chekout = () => {
                         Order placed successfully!
                     </Typography>
                     <Box sx={{ mt: '24px', gap: '15px', textAlign: 'center' }}>
-                        <Button className='btn_theam' onClick={() => handleShowClose()}>Okay</Button>
+                        <Button className='btn_theam' onClick={() => navigate('/home')}>Okay</Button>
                     </Box>
                 </Box>
             </Modal>
