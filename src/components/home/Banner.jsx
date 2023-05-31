@@ -1,6 +1,5 @@
 import React from 'react';
-// import './style.scss'
-import { Box, Button, Container, IconButton, InputBase, Paper } from '@mui/material';
+import { Box, Button, Container, InputBase, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const Banner = () => {

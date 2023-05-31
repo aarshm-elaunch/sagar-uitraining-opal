@@ -131,7 +131,7 @@ const SignUp = () => {
                             <Typography sx={{ color: '#3B37DA', fontWeight: '400', cursor: 'pointer' }} onClick={() => navigate('/')}>Login here</Typography>
                         </Box>
                     </Box>
-                    <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'none', xs: 'none' }, alignItems: 'center', justifyContent: 'center' }}>
+                    <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'none', xs: 'none' }, alignItems: 'center', justifyContent: 'center' }} margin='auto'>
                         <img src={logo} alt="logo" />
                     </Box>
                 </Box>

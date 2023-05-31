@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Container, Divider, Grid, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { Box, Container, Divider, Grid, Typography } from '@mui/material';
 import logo from '../assets/images/footer_logo.png';
 import facebook from '../assets/images/facebook.png';
 import insta from '../assets/images/instagram.png';
@@ -33,7 +33,7 @@ const MainFooter = () => {
                                     <h2>Information</h2>
                                     <Box className="list">
                                         <Link to="/policy" underline="none" style={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Privacy Policy</Link>
-                                        <Link to="#" underline="none" style={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Terms and Conditions</Link>
+                                        <Link to="/policy" underline="none" style={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }}>Terms and Conditions</Link>
                                     </Box>
                                 </Box>
                             </Grid>

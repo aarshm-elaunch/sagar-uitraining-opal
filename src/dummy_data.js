@@ -209,7 +209,7 @@ export const home_auction = [
         id: 'auction1',
         img: auction_1,
         title: 'Auction Title Goes Here',
-        date: '2023-05-29 18:00:00',
+        date: '2023-05-31 18:00:00',
     },
     {
         id: 'auction2',

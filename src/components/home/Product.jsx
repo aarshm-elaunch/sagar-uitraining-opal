@@ -1,10 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, Checkbox, Container, Grid, Rating } from '@mui/material';
+import { Box, Button, Container, Grid } from '@mui/material';
 import { product_list } from '../../dummy_data';
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import Favorite from '@mui/icons-material/Favorite';
-import UseWishList from '../../hooks/useWishList';
 import ProductCard from '../common/ProductCard';
 
 const Product = () => {

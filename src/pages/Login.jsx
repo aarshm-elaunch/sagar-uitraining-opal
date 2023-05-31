@@ -45,17 +45,17 @@ const Login = () => {
                         <Divider sx={{ mb: '8px' }}>Login With Email</Divider>
 
 
-                        <FormControl fullWidth sx={{margin: '24px 0'}}>
+                        <FormControl fullWidth sx={{ margin: '24px 0' }}>
                             <InputLabel htmlFor="outlined-adornment-amount">Email address</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-amount"
                                 className='input_field'
                                 label="Email address"
-                                sx={{borderRadius: '10px'}}
+                                sx={{ borderRadius: '10px' }}
                             />
                         </FormControl>
                         <FormControl fullWidth>
-                        <InputLabel htmlFor="outlined-adornment-amount">Password</InputLabel>
+                            <InputLabel htmlFor="outlined-adornment-amount">Password</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-password"
                                 type={show ? 'text' : 'password'}
@@ -75,7 +75,7 @@ const Login = () => {
                             />
                         </FormControl>
 
-                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', m: '24px 0 8px 0', flexDirection:{lg: 'row', md: 'row', sm: 'row', xs: 'column'} }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', m: '24px 0 8px 0', flexDirection: { lg: 'row', md: 'row', sm: 'row', xs: 'column' } }}>
                             <FormControlLabel control={<Checkbox />} label="Remember me" />
                             <Typography sx={{
                                 color: '#3B37DA',
@@ -97,12 +97,12 @@ const Login = () => {
                         }} onClick={() => navigate('/home')}>Login</Button>
 
 
-                        <Box sx={{ display: 'flex', gap: '5px', flexDirection:{lg: 'row', md: 'row', sm: 'row', xs: 'column'} }}>
+                        <Box sx={{ display: 'flex', gap: '5px', flexDirection: { lg: 'row', md: 'row', sm: 'row', xs: 'column' } }}>
                             <Typography> Don't have an account yet? </Typography>
                             <Typography sx={{ color: '#3B37DA', fontWeight: '400', cursor: 'pointer' }} onClick={() => navigate('/signup')}>Register here</Typography>
                         </Box>
                     </Box>
-                    <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'none', xs: 'none' }, alignItems: 'center', justifyContent: 'center' }}>
+                    <Box sx={{ display: { lg: 'flex', md: 'flex', sm: 'none', xs: 'none' }, alignItems: 'center', justifyContent: 'center' }} margin='auto'>
                         <img src={logo} alt="logo" />
                     </Box>
                 </Box>

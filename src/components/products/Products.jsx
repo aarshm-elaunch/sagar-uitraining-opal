@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Container, Divider, FormControl, Grid, IconButton, InputAdornment, InputBase, InputLabel, OutlinedInput, Paper, Typography } from '@mui/material';
+import { Box, Button, Container, Divider, FormControl, Grid, IconButton, InputAdornment, InputBase, InputLabel, OutlinedInput, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import { product_list } from '../../dummy_data';
@@ -83,7 +83,7 @@ const Products = () => {
     const [pro, setPro] = useState(products);
     const [color, setColor] = useState([]);
     const [types, setTypes] = useState([]);
-    const [shapes, setShapes] = useState();
+    const [shapes, setShapes] = useState([]);
     const [min, setMin] = useState();
 
 
@@ -106,6 +106,22 @@ const Products = () => {
              setColor(remove)
             : 
             setColor([...color, data])
+    }
+
+    const addRemoveType = (data) =>{
+        const remove = types.filter((item)=>item.id !== data.id);
+        types?.findIndex((c)=>c?.id === data.id) > -1 ? 
+             setTypes(remove)
+            : 
+            setTypes([...types, data])
+    }
+
+    const addRemoveShapes = (data) =>{
+        const remove = shapes.filter((item)=>item.id !== data.id);
+        shapes?.findIndex((c)=>c?.id === data.id) > -1 ? 
+             setShapes(remove)
+            : 
+            setShapes([...shapes, data])
     }
 
 
@@ -170,7 +186,6 @@ const Products = () => {
                                                     border: color?.findIndex((c)=>c?.id === ele.id) > -1 && '3px solid #6200EE'
                                                 }}
                                                 onClick={() => addRemoveColor(ele)}
-                                                addRemoveColor
                                             > </Box>
                                         )}
                                     </Box>
@@ -179,15 +194,15 @@ const Products = () => {
                                 <Box className='type'>
                                     <h2>Type</h2>
                                     <Box className='type_list'>
-                                        {types_list.map((type, index) =>
-                                            <Typography
+                                        {types_list.map((type) =>
+                                            <Box
                                                 className="list_wrapper"
-                                                onClick={() => setTypes([...types, type])}
                                                 sx={{
-                                                    background:  !types.length ? '#E6E8F1' : types?.map((t)=>t?.id === index && '#0D0E11'),
-                                                    color: types?.map((t)=>t?.id === index ? '#fff' : '#000')
+                                                    background: types?.findIndex((c)=>c?.id === type.id) > -1 ? '#6200EE' : "#E6E8F1" ,
+                                                    color: types?.findIndex((c)=>c?.id === type.id) > -1 ? '#fff' : "#000"
                                                 }}
-                                            >{type.name}</Typography>
+                                                onClick={()=>addRemoveType(type)}
+                                            >{type.name}</Box>
                                         )}
                                     </Box>
                                 </Box>
@@ -195,15 +210,15 @@ const Products = () => {
                                 <Box className='type'>
                                     <h2>Shape</h2>
                                     <Box className='type_list'>
-                                        {shape_list.map((shape, index) =>
-                                            <Typography
+                                        {shape_list.map((shape) =>
+                                            <Box
                                                 className="list_wrapper"
-                                                onClick={() => setShapes(index)}
                                                 sx={{
-                                                    background: shapes === index ? '#0D0E11' : '#E6E8F1',
-                                                    color: shapes === index ? '#fff' : '#000'
+                                                    background: shapes?.findIndex((c)=>c?.id === shape.id) > -1 ? '#6200EE' : "#E6E8F1" ,
+                                                    color: shapes?.findIndex((c)=>c?.id === shape.id) > -1 ? '#fff' : "#000"
                                                 }}
-                                            >{shape.name}</Typography>
+                                                onClick={()=>addRemoveShapes(shape)}
+                                            >{shape.name}</Box>
                                         )}
                                     </Box>
                                 </Box>
