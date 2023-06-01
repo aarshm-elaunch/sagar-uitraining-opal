@@ -19,8 +19,17 @@ import google from '../assets/images/google.png'
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const [show, setShow] = useState(false);
     const navigate = useNavigate();
+    const [show, setShow] = useState(false);
+    const [cred, setCred] = useState({userName: '', password: ''});
+
+    // localStorage.setItem('items', JSON.stringify(items));
+
+    const handleLogin = () => {
+        localStorage.setItem('credintial', JSON.stringify(cred));
+
+    }
+
     return (
         <Box sx={{ height: 'calc(100vh - 80px)', overflowY: 'auto' }}>
             <Container sx={{ minWidth: '80%' }}>
@@ -52,6 +61,8 @@ const Login = () => {
                                 className='input_field'
                                 label="Email address"
                                 sx={{ borderRadius: '10px' }}
+                                value={cred.userName}
+                                onChange={(e)=>setCred({...cred, 'userName': e.target.value})}
                             />
                         </FormControl>
                         <FormControl fullWidth>
@@ -72,6 +83,8 @@ const Login = () => {
                                     </InputAdornment>
                                 }
                                 sx={{ borderRadius: '10px' }}
+                                value={cred.password}
+                                onChange={(e)=>setCred({...cred, 'password': e.target.value})}
                             />
                         </FormControl>
 
@@ -94,7 +107,7 @@ const Login = () => {
                             color: '#fff',
                             gap: '5px',
                             textTransform: 'capitalize'
-                        }} onClick={() => navigate('/home')}>Login</Button>
+                        }} onClick={() => handleLogin()}>Login</Button>
 
 
                         <Box sx={{ display: 'flex', gap: '5px', flexDirection: { lg: 'row', md: 'row', sm: 'row', xs: 'column' } }}>

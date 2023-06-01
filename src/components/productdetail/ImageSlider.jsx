@@ -9,12 +9,18 @@ const ImageSlider = ({data}) => {
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
     };
     return (
             <Slider {...settings} className='main_slider'>
                 <Box className='slider_item'>
                     <img src={data?.image} alt='img' />
+                </Box>
+                <Box className='slider_item'>
+                    <img src={product_img1} alt='img' />
+                </Box>
+                <Box className='slider_item'>
+                    <img src={product_img} alt='img' />
                 </Box>
                 <Box className='slider_item'>
                     <img src={product_img1} alt='img' />

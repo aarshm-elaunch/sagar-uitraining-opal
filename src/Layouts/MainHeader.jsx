@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { AppBar, Avatar, Badge, Box, Container, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Menu, MenuItem, Typography } from '@mui/material';
+import { AppBar, Avatar, Badge, Box, Container, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
 import logo from '../assets/images/logo.png'
 import MenuIcon from '@mui/icons-material/Menu';
 import profile_pic from '../assets/images/profile_pic.png'
@@ -14,6 +14,9 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import ForumIcon from '@mui/icons-material/Forum';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import styled from '@emotion/styled';
+import { tooltipClasses } from '@mui/material/Tooltip';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 const ITEM_HEIGHT = 48;
@@ -62,6 +65,17 @@ const menuItems = [
         location: '/'
     },
 ]
+
+const CustomTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} arrow />
+))({
+    [`& .${tooltipClasses.tooltip}`]: {
+        backgroundColor: '#3B37DA',
+    },
+    [`& .${tooltipClasses.arrow}`]: {
+        color: '#3B37DA',
+    },
+});
 
 const MainHeader = () => {
     const navigate = useNavigate();
@@ -138,18 +152,26 @@ const MainHeader = () => {
                         </Drawer>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: { lg: '24px', md: '18px', sm: '14px', xs: '8px' } }}>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: { lg: '24px', md: '18px', sm: '14px', xs: '8px' } }}>
-                                <IconButton onClick={() => navigate('/cart')}>
-                                    <Badge badgeContent={cartItems && cartItems.length} color="primary" sx={{ '.css-16ksoic-MuiBadge-badge': { height: '15px', minWidth: '15px', fontSize: '0.50rem' } }}>
-                                        {url === '/cart' ? <ShoppingBagIcon sx={{ fill: '#3B37DA' }} /> : <ShoppingBagOutlinedIcon />}
-                                    </Badge>
-                                </IconButton>
+                                <CustomTooltip title='cart' arrow>
+                                    <IconButton onClick={() => navigate('/cart')}>
+                                        <Badge badgeContent={cartItems && cartItems.length} color="primary" sx={{ '.css-16ksoic-MuiBadge-badge': { height: '15px', minWidth: '15px', fontSize: '0.50rem' } }}>
+                                            {url === '/cart' ? <ShoppingBagIcon sx={{ fill: '#3B37DA' }} /> : <ShoppingBagOutlinedIcon />}
+                                        </Badge>
+                                    </IconButton>
+                                </CustomTooltip>
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: { lg: '24px', md: '18px', sm: '14px', xs: '8px' } }}>
-                                {url === '/chat' ? <ForumIcon sx={{ fill: '#3B37DA' }} /> : <IconButton onClick={() => navigate('/chat')}><ForumOutlinedIcon /></IconButton>}
+                                <CustomTooltip title='chat'>
+                                    {url === '/chat' ? <IconButton onClick={() => navigate('/chat')}><ForumIcon sx={{ fill: '#3B37DA' }} /></IconButton> : <IconButton onClick={() => navigate('/chat')}><ForumOutlinedIcon /></IconButton>}
+                                </CustomTooltip>
                                 <Divider orientation="vertical" flexItem sx={{ height: '32px', mt: '10px' }} />
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                <Box sx={{display: {lg: 'flex', md: 'none', sm: 'none', xs: 'none'}, alignItems: 'center', gap: '8px'}}>
+                                <Avatar alt="Remy Sharp" src={profile_pic} />
+                                <Typography>Marques Brownlee</Typography>
+                                </Box>
                                 <IconButton
                                     aria-label="more"
                                     id="long-button"
@@ -158,7 +180,8 @@ const MainHeader = () => {
                                     aria-haspopup="true"
                                     onClick={handleClick}
                                 >
-                                    <Avatar alt="Remy Sharp" src={profile_pic} />
+                                    <ExpandMoreIcon sx={{display: {lg: 'block', md: 'none', sm: 'none', xs: 'none'}}} />
+                                    <Avatar alt="Remy Sharp" src={profile_pic} sx={{display: {lg: 'none', md: 'block'}}}  />
                                 </IconButton>
                             </Box>
                             <IconButton

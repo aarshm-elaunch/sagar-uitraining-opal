@@ -89,9 +89,9 @@ const Products = () => {
 
     const filter = () => {
         const filteredProduct = products
-        .filter((p) =>{
-            let checkColors = color.filter(item => item.colorName === p?.colorName).length > 0
-            return checkColors || p.price === `$${min}`
+            .filter((p) => {
+                let checkColors = color.filter(item => item.colorName === p?.colorName).length > 0
+                return checkColors || p.price === `$${min}`
             });
         setPro(filteredProduct)
     }
@@ -100,27 +100,27 @@ const Products = () => {
         setPro(product_list)
     }
 
-    const addRemoveColor = (data) =>{
-        const remove = color.filter((item)=>item.id !== data.id);
-        color?.findIndex((c)=>c?.id === data.id) > -1 ? 
-             setColor(remove)
-            : 
+    const addRemoveColor = (data) => {
+        const remove = color.filter((item) => item.id !== data.id);
+        color?.findIndex((c) => c?.id === data.id) > -1 ?
+            setColor(remove)
+            :
             setColor([...color, data])
     }
 
-    const addRemoveType = (data) =>{
-        const remove = types.filter((item)=>item.id !== data.id);
-        types?.findIndex((c)=>c?.id === data.id) > -1 ? 
-             setTypes(remove)
-            : 
+    const addRemoveType = (data) => {
+        const remove = types.filter((item) => item.id !== data.id);
+        types?.findIndex((c) => c?.id === data.id) > -1 ?
+            setTypes(remove)
+            :
             setTypes([...types, data])
     }
 
-    const addRemoveShapes = (data) =>{
-        const remove = shapes.filter((item)=>item.id !== data.id);
-        shapes?.findIndex((c)=>c?.id === data.id) > -1 ? 
-             setShapes(remove)
-            : 
+    const addRemoveShapes = (data) => {
+        const remove = shapes.filter((item) => item.id !== data.id);
+        shapes?.findIndex((c) => c?.id === data.id) > -1 ?
+            setShapes(remove)
+            :
             setShapes([...shapes, data])
     }
 
@@ -162,7 +162,7 @@ const Products = () => {
                                             startAdornment={<InputAdornment position="start">$</InputAdornment>}
                                             label="Min. Price"
                                             value={min}
-                                            onChange={(e)=>setMin(e.target.value)}
+                                            onChange={(e) => setMin(e.target.value)}
                                         />
                                     </FormControl>
                                     <FormControl fullWidth className='feild'>
@@ -183,7 +183,7 @@ const Products = () => {
                                                 className="color_wrapper"
                                                 sx={{
                                                     background: ele.colorName,
-                                                    border: color?.findIndex((c)=>c?.id === ele.id) > -1 && '3px solid #6200EE'
+                                                    border: color?.findIndex((c) => c?.id === ele.id) > -1 && '3px solid #6200EE'
                                                 }}
                                                 onClick={() => addRemoveColor(ele)}
                                             > </Box>
@@ -198,10 +198,10 @@ const Products = () => {
                                             <Box
                                                 className="list_wrapper"
                                                 sx={{
-                                                    background: types?.findIndex((c)=>c?.id === type.id) > -1 ? '#6200EE' : "#E6E8F1" ,
-                                                    color: types?.findIndex((c)=>c?.id === type.id) > -1 ? '#fff' : "#000"
+                                                    background: types?.findIndex((c) => c?.id === type.id) > -1 ? '#6200EE' : "#E6E8F1",
+                                                    color: types?.findIndex((c) => c?.id === type.id) > -1 ? '#fff' : "#000"
                                                 }}
-                                                onClick={()=>addRemoveType(type)}
+                                                onClick={() => addRemoveType(type)}
                                             >{type.name}</Box>
                                         )}
                                     </Box>
@@ -214,10 +214,10 @@ const Products = () => {
                                             <Box
                                                 className="list_wrapper"
                                                 sx={{
-                                                    background: shapes?.findIndex((c)=>c?.id === shape.id) > -1 ? '#6200EE' : "#E6E8F1" ,
-                                                    color: shapes?.findIndex((c)=>c?.id === shape.id) > -1 ? '#fff' : "#000"
+                                                    background: shapes?.findIndex((c) => c?.id === shape.id) > -1 ? '#6200EE' : "#E6E8F1",
+                                                    color: shapes?.findIndex((c) => c?.id === shape.id) > -1 ? '#fff' : "#000"
                                                 }}
-                                                onClick={()=>addRemoveShapes(shape)}
+                                                onClick={() => addRemoveShapes(shape)}
                                             >{shape.name}</Box>
                                         )}
                                     </Box>
@@ -232,7 +232,7 @@ const Products = () => {
                             <h1>Search Results</h1>
                             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 3, sm: 8, md: 9 }}>
                                 {pro.map((data) =>
-                                    <ProductCard data={data}/>
+                                    <ProductCard data={data} />
                                 )}
                             </Grid>
                         </Grid>

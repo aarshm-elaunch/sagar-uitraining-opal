@@ -1,31 +1,38 @@
-.product_card{
+.product_card {
     padding: 16px !important;
     width: 100%;
     border: 1px solid #EFF3F9;
     border-radius: 15px;
-    .img_wrapper{
+
+    .img_wrapper {
         width: 100%;
         border-radius: 15px;
         overflow: hidden;
         cursor: pointer;
-        img{
+
+        img {
             height: 100%;
             width: 100% !important;
             object-fit: cover;
             object-position: center;
         }
     }
-    .item_wrapper{
+
+    .item_wrapper {
         margin-top: 16px;
-        .item_text{
+
+        .item_text {
             margin-bottom: 8px;
-            h3{
+
+            h3 {
                 cursor: pointer;
             }
         }
-        .item_detail{
+
+        .item_detail {
             margin-top: 8px;
-            h3{
+
+            h3 {
                 color: #3B37DA;
                 font-size: 16px;
             }
@@ -33,33 +40,36 @@
     }
 }
 
-.auction_card{
-    .image_wrapper{
-        img{
+.auction_card {
+    .image_wrapper {
+        img {
             height: 100%;
             width: 100%;
             object-fit: cover;
             object-position: center;
         }
+
         position: relative;
-        .time{
+
+        .time {
             position: absolute;
-            background: red;
-            height: 26px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            padding: 5px;
-            border-radius: 5px;
             bottom: 15px;
             right: 15px;
+            background: #de0000;
+            color: #fff;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
         }
     }
-    .text_content{
+
+    .text_content {
         text-align: left;
         margin-top: 24px;
-        h2{
+
+        h2 {
             margin-bottom: 16px;
         }
     }

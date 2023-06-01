@@ -34,7 +34,7 @@ const ChatSection = () => {
     return (
         <Box className='chat_wrapper'>
             <Box className={!users ? 'sidebar custom-scrollbar' : 'sidebar custom-scrollbar hide_sidebar'}>
-                <Box className="he">
+                <Box className="chat_header">
                     <h1>Chats</h1>
                     <FormControl fullWidth>
                         <OutlinedInput

@@ -165,6 +165,33 @@ export const user_list = [
     },
 ]
 
+export const home_podcast_list = [
+    {
+        img: podcast1,
+        title: 'Podcast title goes here',
+        detail: 'Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.',
+        audio: audio1,
+    },
+    {
+        img: podcast2,
+        title: 'Podcast title goes here',
+        detail: 'Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.',
+        audio: audio2,
+    },
+    {
+        img: podcast3,
+        title: 'Podcast title goes here',
+        detail: 'Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.',
+        audio: audio3,
+    },
+    {
+        img: podcast4,
+        title: 'Podcast title goes here',
+        detail: 'Aenean vulputate eleifend tellus aenean leo ligula porttitor eu.',
+        audio: audio2,
+    }
+]
+
 export const podcast_list = [
     {
         img: podcast1,
@@ -209,7 +236,7 @@ export const home_auction = [
         id: 'auction1',
         img: auction_1,
         title: 'Auction Title Goes Here',
-        date: '2023-05-31 18:00:00',
+        date: '2023-06-01 18:00:00',
     },
     {
         id: 'auction2',
