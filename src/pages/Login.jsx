@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Box,
     Button,
@@ -21,14 +21,22 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
-    const [cred, setCred] = useState({userName: '', password: ''});
-
-    // localStorage.setItem('items', JSON.stringify(items));
+    const [cred, setCred] = useState();
+    const [value, setValue] = useState({ email: '', password: '' })
+    const [error, setError] = useState('')
 
     const handleLogin = () => {
-        localStorage.setItem('credintial', JSON.stringify(cred));
-
+        cred?.email === value?.email && cred?.password === value?.password ?
+            navigate('/home') :
+            setError('userName or password are incorrect')
     }
+
+    useEffect(() => {
+        const item = JSON.parse(localStorage.getItem('credintial'));
+        if (item) {
+            setCred(item)
+        }
+    }, []);
 
     return (
         <Box sx={{ height: 'calc(100vh - 80px)', overflowY: 'auto' }}>
@@ -52,7 +60,7 @@ const Login = () => {
                         }}><img src={google} alt="logo" />Login with Google</Button>
 
                         <Divider sx={{ mb: '8px' }}>Login With Email</Divider>
-
+                        {error && <Typography sx={{textAlign: 'center', color: '#DE0000'}}>{error}</Typography>}
 
                         <FormControl fullWidth sx={{ margin: '24px 0' }}>
                             <InputLabel htmlFor="outlined-adornment-amount">Email address</InputLabel>
@@ -61,8 +69,8 @@ const Login = () => {
                                 className='input_field'
                                 label="Email address"
                                 sx={{ borderRadius: '10px' }}
-                                value={cred.userName}
-                                onChange={(e)=>setCred({...cred, 'userName': e.target.value})}
+                                value={value.email}
+                                onChange={(e) => setValue({ ...value, 'email': e.target.value })}
                             />
                         </FormControl>
                         <FormControl fullWidth>
@@ -83,8 +91,8 @@ const Login = () => {
                                     </InputAdornment>
                                 }
                                 sx={{ borderRadius: '10px' }}
-                                value={cred.password}
-                                onChange={(e)=>setCred({...cred, 'password': e.target.value})}
+                                value={value.password}
+                                onChange={(e) => setValue({ ...value, 'password': e.target.value })}
                             />
                         </FormControl>
 

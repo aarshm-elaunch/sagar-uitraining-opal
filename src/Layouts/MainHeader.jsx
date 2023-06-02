@@ -112,12 +112,21 @@ const MainHeader = () => {
         </Box>
     );
 
+    const redirect = (path) => {
+        if(path === '/'){
+            localStorage.removeItem('credintial');
+            navigate(path)
+        } else {
+            navigate(path);
+        }
+    }
+
     const menu = (
         menuItems.map((option) => (
             <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src={option.icon} alt="message" />
-                    <Typography component='a' sx={{ color: 'inherit', textDecoration: 'none' }} onClick={() => navigate(option.location)}>{option.item}</Typography>
+                    <Typography component='a' sx={{ color: 'inherit', textDecoration: 'none' }} onClick={() => redirect(option.location)}>{option.item}</Typography>
                 </Box>
             </MenuItem>
         ))

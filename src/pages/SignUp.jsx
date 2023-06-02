@@ -35,6 +35,14 @@ const SignUp = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const [cred, setCred] = useState({fName: '', lName: '', email: '', password: ''});
+
+    const handleSignin = () => {
+        localStorage.setItem('credintial', JSON.stringify(cred));
+        navigate('/')
+    }
+
     return (
         <Box sx={{ height: 'calc(100vh - 80px)', overflowY: 'auto' }}>
             <Container sx={{ minWidth: '80%' }}>
@@ -67,6 +75,8 @@ const SignUp = () => {
                                     className='input_field'
                                     label="First Name"
                                     sx={{ borderRadius: '10px' }}
+                                    value={cred.fName}
+                                    onChange={(e)=>setCred({...cred, 'fName': e.target.value})}
                                 />
                             </FormControl>
                             <FormControl fullWidth sx={{ mt: { lg: '0', md: '0', sm: '0', xs: '24px' } }}>
@@ -76,6 +86,8 @@ const SignUp = () => {
                                     className='input_field'
                                     label="Last Name"
                                     sx={{ borderRadius: '10px' }}
+                                    value={cred.lName}
+                                    onChange={(e)=>setCred({...cred, 'lName': e.target.value})}
                                 />
                             </FormControl>
                         </Box>
@@ -87,6 +99,9 @@ const SignUp = () => {
                                 className='input_field'
                                 label="Email address"
                                 sx={{ borderRadius: '10px' }}
+                                value={cred.email}
+                                onChange={(e)=>setCred({...cred, 'email': e.target.value})}
+
                             />
                         </FormControl>
                         <FormControl fullWidth>
@@ -107,6 +122,8 @@ const SignUp = () => {
                                     </InputAdornment>
                                 }
                                 sx={{ borderRadius: '10px' }}
+                                value={cred.password}
+                                onChange={(e)=>setCred({...cred, 'password': e.target.value})}
                             />
                         </FormControl>
 
@@ -124,7 +141,7 @@ const SignUp = () => {
                             color: '#fff',
                             gap: '5px',
                             textTransform: 'capitalize'
-                        }} onClick={() => handleOpen()}>Sign Up</Button>
+                        }} onClick={() => handleSignin()}>Sign Up</Button>
 
                         <Box sx={{ display: 'flex', gap: '5px', flexDirection:{lg: 'row', md: 'row', sm: 'row', xs: 'column'} }}>
                             <Typography> Don't have an account yet? </Typography>
